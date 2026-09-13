@@ -1,0 +1,278 @@
+{
+  "main": {
+    "id": "be7075fbb685ad97",
+    "type": "split",
+    "children": [
+      {
+        "id": "41cf16b9cbd5b9c6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "69cb74f50766d60a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Head/Head-MOC.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Head-MOC"
+            }
+          },
+          {
+            "id": "650d2c5fb4548bed",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Head/Criteria/Wind compatibility.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Wind compatibility"
+            }
+          },
+          {
+            "id": "090c0d5398de3b2c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Hand/Workflows/Citadel flows/Sewage and infection risk.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Sewage and infection risk"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "414468a9a1b3f411",
+    "type": "split",
+    "children": [
+      {
+        "id": "7725821d143e2d1e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a770f06e276dde91",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "7ff0efe047e2c40e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "f363d273c64fd428",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 553.5
+  },
+  "right": {
+    "id": "a2fb68e318de1c05",
+    "type": "split",
+    "children": [
+      {
+        "id": "842ae3d681dc85da",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ce0dd5d4c95caf2c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "7b2d48f81d94aa0f",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "3eb5bd842ae24f63",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "a50f316e152c111d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "178772ccdac98ccd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          },
+          {
+            "id": "2279240479f232a9",
+            "type": "leaf",
+            "state": {
+              "type": "juggl_nodes",
+              "state": {},
+              "icon": "ag-node-list",
+              "title": "Juggl nodes"
+            }
+          },
+          {
+            "id": "34301224b8c1d282",
+            "type": "leaf",
+            "state": {
+              "type": "juggl_style",
+              "state": {},
+              "icon": "ag-style",
+              "title": "Juggl style"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "hotkeys-cheatsheet:Open Hotkeys Cheatsheet": false,
+      "juggl:Juggl global graph": false
+    }
+  },
+  "active": "090c0d5398de3b2c",
+  "lastOpenFiles": [
+    "Hand/Workflows/Citadel flows/Drinking water scarcity.md",
+    "Hand/Workflows/Citadel flows/Electric shock hazard.md",
+    "Hand/Workflows/Citadel flows/Citadel flows - MOC.md",
+    "Hand/Workflows/Citadel flows/Cultural heritage and home flooding risk.md",
+    "Hand/Workflows/Citadel flows/Citadel input sources.md",
+    "Hand/Workflows/Citadel flows/Citadel general question.md",
+    "Head/Spectral indices/NDBI.md",
+    "Hand/Workflows/Citadel flows/Sewage and infection risk.md",
+    "Hand/Workflows/Citadel flows/River and ocean hazard.md",
+    "Hand/Workflows/Citadel flows/Rockfall treefall and landslide risk.md",
+    "Hand/Workflows/Citadel flows/Primary cooking fuel disruption.md",
+    "Hand/Workflows/Citadel flows/Power outage and disruption risk.md",
+    "Hand/Workflows/Citadel flows/Food aid and relief estimation.md",
+    "Hand/Workflows/Citadel flows/Critical infrastructure and waterlogging.md",
+    "Hand/Workflows/Citadel flows/Citadel node schema.md",
+    "Hand/Workflows/Citadel flows",
+    "Heart/Agent personas/Entro - Uncertainty Analyser.md",
+    "Heart/Agent personas/Agent Norwood - Satellite expert.md",
+    "Hand/Workflows/SMAA.md",
+    "Hand/Workflows/flood_damage_query.md",
+    "Hand/Workflows/Flood_mask_Dataset_MCDA.md",
+    "Hand/Workflows/Workflows-MOC.md",
+    "Head/Spectral indices/Xiao flooding rule for paddy.md",
+    "Head/Criteria/Bragg Scattering Criterion.md",
+    "Head/Criteria/Cloud compatibility.md",
+    "Head/NRT_flood_prodcuts/OPERA DSWx-HLS.md",
+    "Heart/Agent personas/Monty - Python expert.md",
+    "Head/Spectral indices",
+    "Head/Uncertainty/Criteria",
+    "Head/Uncertainty/Knowledge",
+    "Head/Uncertainty/Responses",
+    "Head/Uncertainty",
+    "Heart/AI Design Patterns and Principles",
+    "Head/Untitled",
+    "Head/NRT_flood_prodcuts",
+    "Head/Criteria"
+  ]
+}

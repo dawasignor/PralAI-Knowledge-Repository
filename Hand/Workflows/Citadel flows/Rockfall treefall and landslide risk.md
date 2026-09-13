@@ -1,0 +1,82 @@
+---
+type: workflow
+nexus: other
+desc: Slope failure triggered or primed by the same rainfall as the flood - rockfall, treefall and landslide, and who sits below it
+aliases: [landslide risk, rockfall, treefall, slope failure, mass movement]
+keywords: [landslide, rockfall, treefall, slope stability, mass movement, antecedent rainfall, saturation, runout, terrain, slope angle]
+agent: citadel
+parent_workflow: Rockfall treefall and landslide risk
+workflow_order: 1
+prev_node: argos
+next_node: argos
+inputs_required: [1, 2, 3, 5, 8, 9, 17]
+context: hand
+retrieval: Answer where slope failure is likely in and around the AOI after the event rainfall, and who is exposed to its runout.
+validation_status: knowledge half only - no evidence written, no source cited, no flow card in the repo
+status: stub
+tags: [workflow, citadel, other, landslide, slope]
+---
+
+## Node
+
+Conforms to [[Citadel node schema]]. One Citadel node, between two Argos ones.
+
+| Field | Value |
+|---|---|
+| `prev_node` | Argos, carrying the user input |
+| `title` | Rockfall treefall and landslide risk |
+| `parent_workflow` | Rockfall treefall and landslide risk |
+| `workflow_order` | 1 |
+| `next_node` | Argos, to update the session and log and answer the user |
+
+## Active context
+
+Sent by Argos when the user triggers this node: the user prompt, the user
+persona, and the session data for the whole exchange so far. The reply is
+shaped by all three -- see the rules in [[Citadel node schema]].
+
+## Inputs required
+
+`[1, 2, 3, 5, 8, 9, 17]` -- indexes [[Citadel input sources]]. Sources 7 and above
+are named but not wired, so this flow cannot run end to end today.
+
+## Knowledge
+
+**TOTAG.** This note is the *knowledge* half of the flow: the evidence the card
+retrieves at the step that needs it. Nothing here is written yet.
+
+What belongs here once it is:
+
+| Step | What this note must supply |
+|---|---|
+| Hazard | What the flood mobilises, with figures, thresholds and the datasets that carry them |
+| Exposure | Who and what is in the way, and how each is counted |
+| Vulnerability | How hard it lands, and which groups this hazard singles out |
+| Recommendation | What an individual and what a city authority should do, from verified guidance |
+| Uncertainty | Where the data does not carry the claim, routed to [[Entro - Uncertainty Analyser]] |
+
+Every figure carries its **vintage** -- the date of the data, not the date it
+was read. A number quoted without its date ages into a false claim while still
+looking sourced.
+
+## Flow card
+
+**Not written.** The procedure lives in the repo at
+`agents/citadel/workflows/rockfall_treefall_and_landslide_risk.md`, loaded by `core.spec.load_flow` and
+overlaid on Citadel for one call. The card holds the five-step spine and the
+output rules; it holds **no figures** -- those are retrieved from this note, so
+the two cannot drift.
+
+## Provenance
+
+Citations, vintages and verification status go in `docs/SOURCES.md`, never into
+a prompt.
+
+## Next-node prompts
+
+Close by offering the user a choice: ask something specific about this
+analysis, check the uncertainty with Entro, or run another flow.
+
+---
+
+Related: [[Citadel flows - MOC]] | [[Citadel node schema]] | [[Citadel input sources]] | [[Agent Citadel - City Planner]] | [[Agent Argos - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]]

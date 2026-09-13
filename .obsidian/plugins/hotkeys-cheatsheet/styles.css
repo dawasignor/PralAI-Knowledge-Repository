@@ -1,0 +1,571 @@
+/* ── Hotkeys Cheatsheet — Modal Styles ──────────────────────────────────── */
+/* All colours use Obsidian CSS custom properties for full theme compatibility. */
+
+/* ── Modal size override ─────────────────────────────────────────────────── */
+/* Applied to this.modalEl to make the modal fill most of the window. */
+
+.modal.hkc-full-modal {
+  width: min(90vw, 1400px);
+  min-width: min(560px, 90vw);
+  height: min(85vh, 1000px);
+  max-width: none;
+  max-height: none;
+}
+
+/* ── Content container ───────────────────────────────────────────────────── */
+/* Applied to this.contentEl — flex column that fills the modal content area. */
+
+.hkc-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+}
+
+/* ── Toolbar ─────────────────────────────────────────────────────────────── */
+
+.hkc-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  flex-shrink: 0;
+}
+
+.hkc-search-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.hkc-search {
+  width: 100%;
+  background: var(--background-modifier-form-field);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  color: var(--text-normal);
+  font-size: var(--font-ui-small);
+  padding-block: 6px;
+  padding-inline: 10px 28px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.hkc-search:focus:not(:placeholder-shown),
+.hkc-search.hkc-search--active {
+  border-color: var(--interactive-accent);
+}
+
+.hkc-search::placeholder {
+  color: var(--text-faint);
+}
+
+.hkc-search-clear {
+  position: absolute;
+  inset-inline-end: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: var(--radius-s);
+  width: 18px;
+  height: 18px;
+}
+
+.hkc-search-clear:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+/* ── Modifier Filter ─────────────────────────────────────────────────────── */
+
+.hkc-filter-wrapper {
+  position: relative;
+}
+
+.hkc-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 28px;
+  height: 28px;
+  background: var(--background-modifier-form-field);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: var(--font-ui-small);
+  padding: 4px;
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.hkc-filter-btn:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+.hkc-filter-btn--active {
+  border-color: var(--interactive-accent);
+  color: var(--text-normal);
+}
+
+.hkc-filter-chip {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-family: var(--font-monospace);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  min-width: auto;
+  padding: 2px 5px;
+  white-space: nowrap;
+}
+
+/* Non-modifier filters (Conflicts only / Modified only) — same chip shape as
+   modifier chips, but plain text rather than monospace since they're not a
+   literal keycap, tinted with the accent color to read as a distinct group. */
+.hkc-filter-chip--tag {
+  font-family: inherit;
+  color: var(--interactive-accent);
+  border-color: var(--interactive-accent);
+}
+
+.hkc-filter-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  inset-inline-end: 0;
+  z-index: 100;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-s);
+  padding: 6px 0;
+  min-width: 130px;
+}
+
+.hkc-search-clear.hkc-hidden,
+.hkc-filter-dropdown.hkc-hidden {
+  display: none;
+}
+
+.hkc-filter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  cursor: pointer;
+  font-size: var(--font-ui-small);
+  color: var(--text-normal);
+  user-select: none;
+  white-space: nowrap;
+  transition: background 0.1s;
+}
+
+.hkc-filter-item:hover {
+  background: var(--background-modifier-hover);
+}
+
+.hkc-filter-item input[type="checkbox"] {
+  accent-color: var(--interactive-accent);
+  cursor: pointer;
+}
+
+.hkc-dropdown-divider {
+  height: 1px;
+  margin: 6px 0;
+  background: var(--background-modifier-border);
+}
+
+/* ── Sort Control ─────────────────────────────────────────────────────────── */
+
+.hkc-sort-wrapper {
+  position: relative;
+}
+
+.hkc-sort-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 28px;
+  height: 28px;
+  background: var(--background-modifier-form-field);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: var(--font-ui-small);
+  padding: 4px;
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.hkc-sort-btn:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+.hkc-sort-btn--active {
+  border-color: var(--interactive-accent);
+  color: var(--text-normal);
+}
+
+.hkc-sort-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  inset-inline-end: 0;
+  z-index: 100;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-s);
+  padding: 6px 0;
+  min-width: 200px;
+}
+
+.hkc-sort-dropdown.hkc-hidden {
+  display: none;
+}
+
+.hkc-filter-item--disabled {
+  color: var(--text-faint);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.hkc-filter-item--disabled input[type="checkbox"] {
+  cursor: not-allowed;
+}
+
+/* ── Export Dropdown ─────────────────────────────────────────────────────── */
+
+.hkc-export-wrapper {
+  position: relative;
+}
+
+.hkc-export-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-s);
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  width: 28px;
+  height: 28px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.hkc-export-btn:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+.hkc-export-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  inset-inline-start: 0;
+  z-index: 100;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-s);
+  padding: 6px 0;
+  min-width: 200px;
+}
+
+.hkc-export-dropdown.hkc-hidden {
+  display: none;
+}
+
+.hkc-export-item {
+  display: flex;
+  align-items: center;
+  padding: 5px 14px;
+  cursor: pointer;
+  font-size: var(--font-ui-small);
+  color: var(--text-normal);
+  user-select: none;
+  transition: background 0.1s;
+}
+
+.hkc-export-item:hover {
+  background: var(--background-modifier-hover);
+}
+
+.hkc-export-item--disabled {
+  color: var(--text-faint);
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ── Category Grid ───────────────────────────────────────────────────────── */
+
+.hkc-grid {
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: auto;
+  padding: 16px 16px 20px;
+  columns: 300px;
+  column-gap: 20px;
+  column-fill: auto;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Category Section ────────────────────────────────────────────────────── */
+
+.hkc-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 20px;
+}
+
+.hkc-category-heading {
+  margin: 0 0 6px;
+  font-size: var(--font-ui-small);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-accent);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  break-after: avoid;
+  user-select: none;
+}
+
+.hkc-heading-interactive {
+  cursor: pointer;
+}
+
+.hkc-heading-interactive:hover {
+  color: var(--interactive-accent);
+}
+
+.hkc-collapse-arrow {
+  font-style: normal;
+  opacity: 0.6;
+}
+
+.hkc-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-s);
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  width: 28px;
+  height: 28px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.hkc-icon-btn:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+.hkc-btn-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Hotkey Entry ────────────────────────────────────────────────────────── */
+
+.hkc-entry {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 0;
+}
+
+.hkc-entry-name {
+  flex: 1;
+  font-size: var(--font-ui-small);
+  color: var(--text-normal);
+  line-height: 1.4;
+  min-width: 0;
+  word-break: break-word;
+}
+
+/* Search highlight in command names */
+.hkc-highlight {
+  background: var(--text-highlight-bg);
+  color: var(--text-normal);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.hkc-entry-name--muted {
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* Suspected OS/Electron-reserved shortcut (e.g. paste) — same muted look as a
+   generic "No command" orphan, distinguished only by the lock icon, since
+   both are equally unbound; the icon just explains *why*. */
+.hkc-entry-name--system {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hkc-entry-name-icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+.hkc-entry-name-icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Jump-to-native-hotkey-editor affordance */
+.hkc-entry-name--clickable {
+  cursor: pointer;
+}
+
+.hkc-entry-name--clickable:hover {
+  color: var(--text-accent);
+}
+
+/* ── Usage Indicators ────────────────────────────────────────────────────── */
+
+.hkc-usage {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  flex-shrink: 0;
+  font-family: var(--font-monospace);
+  font-size: 11px;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+.hkc-usage-category {
+  margin-inline-start: 8px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.hkc-usage-entry {
+  margin: 0 6px;
+}
+
+.hkc-usage-glyph {
+  color: var(--text-accent);
+}
+
+.hkc-flat-list .hkc-entry {
+  padding: 5px 0;
+}
+
+.hkc-entry-hotkeys {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.hkc-hk-row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  /* Hotkey badges are always LTR (e.g. "Ctrl + Shift + K"), even inside an
+     RTL command name — isolate so the bidi algorithm can't reorder them. */
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* ── Kbd Badges ──────────────────────────────────────────────────────────── */
+
+.hkc-kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-family: var(--font-monospace);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  min-width: 22px;
+  padding: 2px 5px;
+  white-space: nowrap;
+}
+
+/* Highlighted key badge when search query matches the key character */
+.hkc-kbd-match {
+  background: var(--interactive-accent);
+  border-color: var(--interactive-accent-hover);
+  color: var(--text-on-accent);
+}
+
+/* ── Empty State ─────────────────────────────────────────────────────────── */
+
+.hkc-no-results {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-faint);
+  font-size: var(--font-ui-small);
+}
+
+/* ── Responsive reflow ───────────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .hkc-grid {
+    columns: 1;
+  }
+
+  .hkc-toolbar {
+    flex-wrap: wrap;
+  }
+}
+
+/* ── Settings about section ──────────────────────────────────────────────── */
+
+.hkc-about {
+  padding: 4px 0;
+}
+
+.hkc-about-name {
+  margin: 0 0 6px;
+  font-size: var(--font-ui-medium);
+  color: var(--text-normal);
+}
+
+.hkc-about-desc {
+  margin: 0 0 4px;
+  font-size: var(--font-ui-small);
+  color: var(--text-muted);
+}
+
+.hkc-about-author {
+  margin: 0;
+  font-size: var(--font-ui-small);
+  color: var(--text-faint);
+}
