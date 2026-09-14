@@ -12,7 +12,7 @@ next_node: argos
 inputs_required: [1, 4, 5, 8, 9, 15, 16, 20]
 context: hand
 retrieval: Answer which drinking-water supply is compromised in the AOI, who loses access, and what the restoration plan should be.
-validation_status: knowledge half only - no evidence written, no source cited, no flow card in the repo
+validation_status: flow card written 2026-09-15; the knowledge half is still empty - no evidence, no source cited
 status: stub
 tags: [workflow, citadel, water, drinking water, wash]
 ---
@@ -61,7 +61,7 @@ looking sourced.
 
 ## Flow card
 
-**Not written.** The procedure lives in the repo at
+**Written.** The procedure lives in the repo at
 `agents/citadel/workflows/drinking_water_scarcity.md`, loaded by `core.spec.load_flow` and
 overlaid on Citadel for one call. The card holds the five-step spine and the
 output rules; it holds **no figures** -- those are retrieved from this note, so
