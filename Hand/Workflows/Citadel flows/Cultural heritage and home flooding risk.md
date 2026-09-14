@@ -12,7 +12,7 @@ next_node: argos
 inputs_required: [3, 4, 5, 9, 10, 18]
 context: hand
 retrieval: Answer which cultural and heritage buildings are vulnerable to the flood, and where floodwater entering homes displaces residents.
-validation_status: knowledge half only - no evidence written, no source cited, no flow card in the repo
+validation_status: flow card written 2026-09-15; the knowledge half is still empty - no evidence, no source cited
 status: stub
 tags: [workflow, citadel, other, heritage, displacement]
 ---
@@ -61,7 +61,7 @@ looking sourced.
 
 ## Flow card
 
-**Not written.** The procedure lives in the repo at
+**Written.** The procedure lives in the repo at
 `agents/citadel/workflows/cultural_heritage_and_home_flooding_risk.md`, loaded by `core.spec.load_flow` and
 overlaid on Citadel for one call. The card holds the five-step spine and the
 output rules; it holds **no figures** -- those are retrieved from this note, so

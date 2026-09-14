@@ -12,7 +12,7 @@ next_node: argos
 inputs_required: [5, 8, 9, 13, 14, 16]
 context: hand
 retrieval: Answer which primary cooking fuel the affected households depend on, how the flood disrupts it, and what restores the ability to cook.
-validation_status: knowledge half only - no evidence written, no source cited, no flow card in the repo
+validation_status: flow card written 2026-09-15; the knowledge half is still empty - no evidence, no source cited
 status: stub
 tags: [workflow, citadel, food, energy, cooking fuel]
 ---
@@ -61,7 +61,7 @@ looking sourced.
 
 ## Flow card
 
-**Not written.** The procedure lives in the repo at
+**Written.** The procedure lives in the repo at
 `agents/citadel/workflows/primary_cooking_fuel_disruption.md`, loaded by `core.spec.load_flow` and
 overlaid on Citadel for one call. The card holds the five-step spine and the
 output rules; it holds **no figures** -- those are retrieved from this note, so
