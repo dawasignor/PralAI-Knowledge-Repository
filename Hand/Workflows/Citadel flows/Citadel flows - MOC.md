@@ -17,6 +17,9 @@ Citadel's workflows, aimed at the **water-food-energy resource nexus** with
 **people's wellbeing at the centre** -- the question each one asks is how a
 flood reaches the people who depend on that resource.
 
+Every flow runs over the same area and the same time window, settled once per
+session and held in [[Citadel session record]].
+
 Read [[Citadel node schema]] first: it defines a node, the nine fields, and the
 fixed `User -> Argos -> Citadel -> Argos -> User` path all of these follow.
 Inputs are cited by number from [[Citadel input sources]].
@@ -62,4 +65,4 @@ Status runs `stub -> draft -> verified`.
 
 ---
 
-Related: [[Citadel node schema]] | [[Citadel input sources]] | [[Citadel general question]] | [[Agent Citadel - City Planner]] | [[Agent Argos - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]] | [[Hand-MOC]]
+Related: [[Citadel node schema]] | [[Citadel session record]] | [[Citadel input sources]] | [[Citadel general question]] | [[Agent Citadel - City Planner]] | [[Agent Argos - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]] | [[Hand-MOC]]

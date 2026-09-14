@@ -23,7 +23,7 @@ A **node** is one step in a workflow. Nodes exist so the state can be followed.
 | 1 | `prev_node` | The node whose output starts this one. **User input** means this is step 0 of the workflow; otherwise it is another agent's output. |
 | 2 | `title` | Technically relevant description of the analysis, in a few words. |
 | 3 | `parent_workflow` | The workflow this node belongs to. For Citadel flows the title and the parent workflow are the same. |
-| 4 | `active_context` | Map of session information Argos sends when the user triggers the node: user prompt, user persona, and the session data for the whole exchange so far. |
+| 4 | `active_context` | Map of session information Argos sends when the user triggers the node: user prompt, user persona, and the session data for the whole exchange so far. Held in [[Citadel session record]]. |
 | 5 | `inputs_required` | Array of positive integers, indexing [[Citadel input sources]]. |
 | 6 | `workflow_order` | The n-th step in the workflow. |
 | 7 | `task_description` | Every subtask involved, in detail. |
@@ -41,8 +41,10 @@ because they have different lifetimes and different readers:
 | **Knowledge note** | The evidence the procedure needs: figures, thresholds, case studies | This vault folder, one note per flow | Only the part retrieved at the step that needs it |
 | **Provenance** | Citations, data vintages, verification status | `docs/SOURCES.md` | **Never** |
 
-Field 4, `active_context`, is supplied by Argos at call time and is not stored
-anywhere. Field 8, `expected_output`, is a sample and belongs with the card.
+Field 4, `active_context`, is supplied at call time from the session record --
+see [[Citadel session record]]. Its constants (AOI, bounding box, event window)
+are injected into every prompt; the rest is retrieved with `read_session`.
+Field 8, `expected_output`, is a sample and belongs with the card.
 
 **Why it is split.** A written flow was 5,300 tokens as one document -- three
 times Citadel's whole persona, re-sent every turn, for one of eleven analyses.
