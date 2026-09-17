@@ -13,6 +13,11 @@ List of datasets:
 [[JRC Global Surface Water]]
 [[ERA5-Land via Open-Meteo Archive]]
 
+Where an AOI and a time frame come from, before any of the above is read:
+[[OpenStreetMap Nominatim]]
+[[OpenStreetMap Overpass]]
+[[GDACS disaster register]]
+
 Near-real-time flood products — the MCDM candidate set, indexed in
 [[NRT products]]:
 [[Global Flood Monitoring (GFM)]]
