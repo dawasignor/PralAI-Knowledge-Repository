@@ -48,16 +48,19 @@ Ordinal, **1 is best**. This is a cost criterion, so it is minimised.
 | [[Copernicus EMS Rapid Mapping]] | 1 | Analyst-validated delineation and damage grading |
 | [[MODIS NRT Flood Product]] | 1 | Flood water maps directly |
 | [[VIIRS NRT Flood Product]] | 1 | Flood maps, plus a recurring-flood classification |
-| [[FloodScan]] | 1 | Delivers flood fraction directly — but see the quantity note below |
 | [[OPERA DSWx-S1]] | 2 | Surface water; needs a permanent-water baseline |
 | [[OPERA DSWx-HLS]] | 2 | Surface water; same |
 
-**FloodScan is level 1 with a caveat.** It delivers flood directly, so no
-derivation is needed — but it delivers a **fraction** (0–100% of a cell
-inundated), not a binary extent. That is a different quantity from every other
-candidate, and comparing it against them is a normalisation problem rather than a
-readiness problem. Kept separate deliberately: readiness measures *work*, not
-*comparability*.
+**Every remaining candidate returns the same quantity.** FloodScan was the
+exception — level 1, but delivering a **fraction** (0–100% of a cell inundated)
+rather than a binary extent, which made comparing it a normalisation problem
+rather than a readiness one. It was withdrawn from the candidate set on
+2026-09-21 (see [[NRT products]]), so that distinction no longer has a case to
+apply to.
+
+The principle it illustrated is kept, because it is what the scale means:
+**readiness measures *work*, not *comparability*.** A future candidate that
+delivers a fraction is still level 1, and still a normalisation problem.
 
 ## Designed to extend past this tier
 
