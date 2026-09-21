@@ -34,7 +34,6 @@ differs, so its presence is itself the flag, and it is never scored.
 
 | Product | Shipped grid (scored) | Native footprint (info) |
 |---|---|---|
-| [[FloodScan]] | 90 m licensed / ~10 km free — see ruling 1b | ~10 km radiometer footprint |
 | [[VIIRS NRT Flood Product]] | 250 m | 375 m I-band native |
 
 Everything else ships at or coarser than what its sensor resolves, so one value
@@ -54,38 +53,41 @@ serves.
    all happen at the shipped cell size.
 
 **Correction to the original argument.** It claimed that scoring the grid would
-let FloodScan outrank [[Global Flood Monitoring (GFM)]]. That was wrong — lower
-is better, and 90 m is worse than 20 m, so GFM ranks first either way. The real
-effect is that FloodScan moves from 4th of seven to last. Smaller than the
-original ruling asserted.
+let a coarse product outrank [[Global Flood Monitoring (GFM)]]. That was wrong —
+lower is better, so GFM ranks first either way. The worked example behind this
+correction was FloodScan, which is **no longer a candidate** (see the exclusion
+note in [[NRT products]]); the reasoning stands on reason 2 above, which is
+about [[VIIRS NRT Flood Product]] and unaffected.
 
-**What this knowingly gives up.** Nothing in the model now distinguishes a
-genuinely resolved 90 m from a downscaled one, so a FloodScan cell and a GFM
-cell are treated as carrying comparable information when they do not. Ruled
-acceptable: the alternative was either a penalty in a criterion that is still
-empty, or a new criterion correlating heavily with this one. Recorded as a
-stated limitation rather than modelled.
+**What this knowingly gives up.** Nothing in the model distinguishes a
+genuinely resolved cell from one posted finer than the sensor resolves. With
+FloodScan withdrawn this bites less hard, but it has **not gone away**:
+[[VIIRS NRT Flood Product]] ships a 250 m grid from a 375 m I-band, so a VIIRS
+cell and a [[MODIS NRT Flood Product]] cell are treated as carrying comparable
+information when they do not. Ruled acceptable: the alternative was either a
+penalty in a criterion that is still empty, or a new criterion correlating
+heavily with this one. Recorded as a stated limitation rather than modelled.
 
 ---
 
-## 1b. FloodScan carries both distributions, resolved at run time
+## 1b. RETIRED — the product it ruled on is no longer a candidate
 
-**Ruling.** "Shipped" is ambiguous for [[FloodScan]] — it depends on which
-distribution is reachable:
+**Retired 2026-09-21.** This ruling decided which of FloodScan's two
+distributions counted as its "shipped" grid, when the same product shipped at
+90 m under a commercial licence and ~10 km through a free redistribution.
+FloodScan has been **withdrawn from the candidate set**, so the question it
+answered no longer arises.
 
-| Distribution | Shipped grid | Terms |
-|---|---|---|
-| AER direct | 90 m | commercial, ~USD 25,000/yr |
-| HDX redistribution | 0.083° ≈ 10 km | free |
+Kept as a retired heading rather than deleted, because the numbering is
+cross-referenced from [[NRT products]] and renumbering the rulings around it
+would break those references silently.
 
-Both are recorded in `mcdm.spatial_resolution_m_by_distribution`, and
-`mcdm.spatial_resolution_m` is left `null`. The availability filter (rulings 2
-and 3) selects which applies, based on whether a licence exists.
-
-**Consequence to state in the thesis:** without a licence the reachable
-FloodScan is the ~10 km HDX grid, so scoring "what the user will actually use"
-lands near the native footprint anyway — for a licensing reason, not a physical
-one. Scoring code must handle the `null` rather than assume a value.
+**What survives it.** No remaining candidate ships at a grid that depends on
+how it is obtained, so `mcdm.spatial_resolution_m` is a real number for every
+one of them and `spatial_resolution_m_by_distribution` is no longer used.
+Scoring code no longer has to handle a `null` resolution for this reason —
+though [[Copernicus EMS Rapid Mapping]] still has no single value, for a
+different reason.
 
 ---
 
@@ -119,12 +121,14 @@ Worked on the Tirupati event, **19 November 2021**:
 | [[Global Flood Monitoring (GFM)]] | Yes — archive from 2015 |
 | [[MODIS NRT Flood Product]] | Yes — from 2003, via the `MCDWD_L3` archive collection |
 | [[OPERA DSWx-HLS]] | Yes — from 2016, though validated only from April 2023 |
-| [[FloodScan]] | Yes — from 1998, if licensed |
 | [[OPERA DSWx-S1]] | **No** — starts December 2023 |
 | [[VIIRS NRT Flood Product]] | **No** — starts April 2025 |
 | [[Copernicus EMS Rapid Mapping]] | Only if an activation covered it |
 
-Seven candidates fall to four before any scoring runs.
+Six candidates fall to three before any scoring runs. (FloodScan, with an
+archive back to 1998, was the fourth survivor before it was withdrawn —
+which is worth stating, because dropping it costs this event its longest
+archive.)
 
 **Status:** agreed in principle. Implementation waits until the existing work is
 pruned. This is the piece that makes availability a **fact** rather than a score
@@ -172,11 +176,13 @@ Not part of the five, and blocking a run:
   normalised from raw values. Until then the dataset notes carry **values, not
   scores** — deliberately, so nothing invented enters the model.
 - **No weights.** See [[Flood_mask_Dataset_MCDA]].
-- **No accuracy figures** have been retrieved for any of the seven products, so
+- **No accuracy figures** have been retrieved for any of the six products, so
   that criterion cannot be scored at all yet.
-- **Normalisation for mixed quantities.** [[FloodScan]] returns a flood
-  *fraction*; the others return extent. These are different quantities and do
-  not normalise the same way.
+- ~~**Normalisation for mixed quantities.**~~ **Closed 2026-09-21 by the
+  withdrawal of FloodScan**, which was the only candidate returning a flood
+  *fraction* rather than an extent. Every remaining product returns extent, so
+  the mixed-quantity problem does not arise. Reopen this if a fraction-valued
+  product is ever added back.
 
 ---
 

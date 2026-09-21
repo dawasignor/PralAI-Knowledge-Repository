@@ -23,7 +23,6 @@ Near-real-time flood products — the MCDM candidate set, indexed in
 [[Global Flood Monitoring (GFM)]]
 [[OPERA DSWx-S1]]
 [[OPERA DSWx-HLS]]
-[[FloodScan]]
 [[VIIRS NRT Flood Product]]
 [[MODIS NRT Flood Product]]
 [[Copernicus EMS Rapid Mapping]]

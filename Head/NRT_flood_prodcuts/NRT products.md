@@ -1,12 +1,12 @@
 ---
 type: moc
-desc: The seven near-real-time flood products Norwood ranks in the flood-mask MCDM, with their metadata side by side
+desc: The six near-real-time flood products Norwood ranks in the flood-mask MCDM, with their metadata side by side
 aliases: [NRT products, NRT flood products, near real time flood products, flood mask candidates, Tier 1 products]
-keywords: [NRT, near real time, flood product, flood mask, candidate, MCDM, MCDA, GFM, DSWx, FloodScan, VIIRS, MODIS, EMS, comparison, revisit, latency, resolution]
+keywords: [NRT, near real time, flood product, flood mask, candidate, MCDM, MCDA, GFM, DSWx, VIIRS, MODIS, EMS, comparison, revisit, latency, resolution, excluded candidates]
 agent: norwood
 context: head
 retrieval: Answer which near-real-time flood products are candidates, and compare their modality, resolution, revisit, latency, projection, archive start and cost.
-validation_status: all seven specifications verified against primary product documentation on 2026-09-05; accuracy figures not yet retrieved for any of them
+validation_status: all six specifications verified against primary product documentation on 2026-09-05; FloodScan withdrawn from the candidate set 2026-09-21; accuracy figures not yet retrieved for any of them
 verified_on: 2026-09-05
 status: draft
 tags: [moc, dataset, nrt, mcdm]
@@ -18,10 +18,33 @@ specification in frontmatter so one read answers a whole MCDM query.
 - [[Global Flood Monitoring (GFM)]] — SAR, 20 m, ensemble, 8 h latency
 - [[OPERA DSWx-S1]] — SAR, 30 m, MGRS, short archive
 - [[OPERA DSWx-HLS]] — optical, 30 m, grid-aligned with DSWx-S1
-- [[FloodScan]] — passive microwave, daily since 1998, commercial
 - [[VIIRS NRT Flood Product]] — optical, 250 m, daily, archive from 2025
 - [[MODIS NRT Flood Product]] — optical, 250 m, daily, archive from 2003
 - [[Copernicus EMS Rapid Mapping]] — on-demand, analyst-validated, activation-only
+
+## Excluded candidates
+
+**FloodScan — withdrawn 2026-09-21.** Passive microwave, daily since 1998,
+commercial. It was the seventh candidate and is not scored, ranked or carried
+into any result.
+
+A thesis has to be able to say why a candidate set is the set it is, so the
+withdrawal is recorded here rather than left as an absence. What dropping it
+costs, stated plainly:
+
+- **The longest archive in the set.** FloodScan reached back to 1998; the next
+  longest is [[MODIS NRT Flood Product]] at 2003. Any event before 2003 now has
+  no candidate at all.
+- **The only passive-microwave modality**, so the remaining set is entirely SAR
+  and optical, and shares their weather and illumination constraints.
+
+What dropping it removes, also plainly:
+
+- The only flood-*fraction* product, which closed the mixed-quantity
+  normalisation blocker in [[Scoring criteria]].
+- The only product whose shipped grid depended on the licence, which retired
+  ruling 1b.
+- The only product with no mechanism note in this vault.
 
 ## Comparison matrix
 
@@ -38,7 +61,6 @@ permanent-water baseline subtracted before it means flood.
 | [[Global Flood Monitoring (GFM)]] | SAR | 20 m | 6–12 d | ≤ 8 h | EPSG:4326 | 2015 | 1 | free |
 | [[OPERA DSWx-S1]] | SAR | 30 m | 6–12 d | NRT, ? | UTM / MGRS | 2023-12 | 2 | free |
 | [[OPERA DSWx-HLS]] | optical | 30 m | 2–3 d\* | ? | UTM / MGRS | 2016 | 2 | free |
-| [[FloodScan]] | passive µwave | 90 m or ~10 km † (~10 km) | 1 d | ? | ? | 1998 | 1 | commercial |
 | [[VIIRS NRT Flood Product]] | optical | 250 m (375 m) | 1 d | ~24 h | lat/lon | 2025-04 | 1 | free |
 | [[MODIS NRT Flood Product]] | optical | 250 m | 1 d | ? | lat/lon | 2003 | 1 | free |
 | [[Copernicus EMS Rapid Mapping]] | mixed | varies | — | 2–12 h | ? | 2012 | 1 | free |
@@ -51,15 +73,12 @@ cadence, not an observation cadence — measured over Shillong, 0 of 13 scenes i
 [[SAR versus optical for flood extent]]. Do not score revisit off this cell
 without that.
 
-**† FloodScan's shipped grid depends on the distribution**: 90 m from AER under
-a ~USD 25,000/yr licence, ~10 km from the free HDX redistribution. Its
-`spatial_resolution_m` is `null` and the availability filter resolves it at run
-time. See [[Scoring criteria]] ruling 1b.
-
 **Stated limitation, not modelled:** nothing in the scoring distinguishes a
-genuinely resolved 90 m cell from a downscaled one, so FloodScan's cells are
-treated as carrying information comparable to GFM's when they do not. Ruled
-acceptable 2026-09-05.
+genuinely resolved cell from one posted finer than the sensor resolves.
+[[VIIRS NRT Flood Product]] ships 250 m from a 375 m I-band, so its cells are
+treated as carrying information comparable to [[MODIS NRT Flood Product]]'s when
+they do not. Ruled acceptable 2026-09-05; unchanged by the FloodScan withdrawal,
+which removed the worst instance but not the problem.
 
 ## Platform orbital parameters
 
@@ -77,9 +96,9 @@ Carried in each note's frontmatter. Verified 2026-09-05.
 Sentinel-1 IW incidence angle is 29.1–46.0°, swath 250 km — the geometry behind
 [[Wind compatibility]] and [[Bragg Scattering Criterion]].
 
-FloodScan and Rapid Mapping have no single platform, so orbital fields are
-`null` in their notes rather than blank. The distinction is deliberate: **blank
-means unverified, `null` means the field does not apply.**
+Rapid Mapping has no single platform, so its orbital fields are `null` in its
+note rather than blank. The distinction is deliberate: **blank means
+unverified, `null` means the field does not apply.**
 
 ## Frontmatter convention
 
@@ -117,7 +136,7 @@ Settled with the user 2026-09-05. Full text in [[Scoring criteria]].
 | # | Question | Ruling |
 |---|---|---|
 | 1 | Resolution: shipped grid or native footprint? | **Shipped grid**, always — reversed from an earlier ruling the same day. Native footprint is context only and carries no penalty |
-| 1b | Which FloodScan distribution counts as "shipped"? | **Both recorded**, resolved at run time by the availability filter |
+| 1b | ~~Which FloodScan distribution counts as "shipped"?~~ | **RETIRED 2026-09-21** — FloodScan withdrawn from the candidate set. Numbering kept so cross-references do not break |
 | 2 | Availability traded off, or a precondition? | **Filter first.** Prune candidates on availability before scoring |
 | 3 | Best product depends on event date | **Same filter**, extended to time. Implementation follows the pruning work |
 | 4 | Processing hiding sensor weakness | **OPEN — TODO.** See [[Sensor limits versus processing gains]] |
@@ -131,10 +150,13 @@ all processing that covers a sensor weakness. Credit the sensor and the delivere
 product as independent criteria and the same design choice is counted twice.
 **Settle it before weights are set.**
 
-Two gaps remain beyond the five: **no accuracy figures** have been retrieved for
-any of the seven, so that criterion cannot be scored yet; and **no
-passive-microwave mechanism note** exists in this vault, so [[FloodScan]] is the
-only product whose physics has nothing to link to.
+One gap remains beyond the five: **no accuracy figures** have been retrieved for
+any of the six, so that criterion cannot be scored yet.
+
+The second gap — no passive-microwave mechanism note in this vault — **closed
+with the withdrawal of FloodScan**, which was the only product whose physics had
+nothing to link to. Every remaining candidate is SAR or optical, and both have
+mechanism notes.
 
 ---
 

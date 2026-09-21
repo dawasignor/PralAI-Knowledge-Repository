@@ -44,24 +44,22 @@ tier use processing to cover a disadvantage**, and each case has the same shape.
 | [[Global Flood Monitoring (GFM)]] | Any single SAR classifier fails on some scenes | Ensemble of three independent algorithms, plus a published likelihood | Accuracy and reliability, credited once for the algorithms and again for the confidence layer |
 | [[OPERA DSWx-HLS]] | Landsat repeats every 16 days, Sentinel-2 every 10 | HLS harmonisation into one 30 m grid | Revisit — the 2–3 day figure is a processing product, not a platform property |
 | [[Copernicus EMS Rapid Mapping]] | No fixed sensor, no systematic revisit | Multi-mission tasking plus human analysts | Accuracy and modality flexibility, both bought by the activation model that also destroys availability |
-| [[FloodScan]] | ~10 km radiometer footprint | Downscaling to a ~90 m grid | Resolution — see below, this row is **open** |
 
-**The FloodScan row moved back into scope on 2026-09-05.** It was briefly the
-settled case: an earlier ruling scored the resolved footprint, which took the
-downscaling credit out of the resolution criterion. That ruling was **reversed**
-— resolution now scores the shipped grid, and native footprint carries no
-penalty ([[Scoring criteria]] ruling 1).
+**The sharpest instance was withdrawn, not solved.** FloodScan sat in this
+table with a ~10 km radiometer footprint downscaled to a ~90 m grid — the
+clearest case of processing being credited as resolution — and it was withdrawn
+from the candidate set on 2026-09-21 (see [[NRT products]]).
 
-The reversal is well argued on its own terms: the shipped grid is what the
-analysis operates on, and the ~10 km footprint is an inference from an unread
-paper. But its consequence belongs in this note — **scoring the shipped grid
-credits the downscaling.** FloodScan is now an instance of this problem rather
-than the template for solving it, and no offset is modelled for it anywhere.
+**Do not read that as progress on ruling 4.** The general problem is untouched:
+resolution scores the shipped grid and native footprint carries no penalty
+([[Scoring criteria]] ruling 1), so **scoring the shipped grid still credits the
+downscaling** wherever the two differ. [[VIIRS NRT Flood Product]] is the
+remaining instance — 250 m posted from a 375 m I-band — and no offset is
+modelled for it anywhere.
 
-That was ruled acceptable as a stated limitation, which is defensible. It is
-also exactly the kind of case-by-case decision this note argues should be made
-once, deliberately, for every row. **There is no settled template — every row
-above is open.**
+Losing the worst example makes the table look tidier than the thinking behind
+it is. Every row above is still **open**, and there is still **no settled
+template** for deciding them.
 
 ## Why it matters for the ranking
 
