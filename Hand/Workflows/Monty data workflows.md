@@ -2,12 +2,12 @@
 type: catalogue
 desc: The data-fetching functions Monty can execute, what each one gives, and which numbered input source it satisfies
 aliases: [Monty workflows, data workflows, workflow catalogue, what workflows exist, registered functions]
-keywords: [workflows, catalogue, monty, fetch_weather_data, fetch_lulc_data, fetch_terrain_data, fetch_permanent_water, fetch_place_context, registry, data fetching, Open-Meteo, Sentinel-2, Copernicus DEM, JRC, Nominatim, Overpass, GDACS, bounding box, geocoding, input sources]
+keywords: [workflows, catalogue, monty, fetch_weather_data, fetch_weather_grid, fetch_lulc_data, fetch_terrain_data, fetch_permanent_water, fetch_place_context, registry, data fetching, Open-Meteo, ERA5, Sentinel-2, Copernicus DEM, JRC, Nominatim, Overpass, GDACS, bounding box, geocoding, input sources]
 agent: argos
 context: hand
 retrieval: Answer which data-fetching workflows exist, what each one returns, what geometry it takes, and which numbered input source it satisfies.
 source_of_truth: core/workflows/ registry in langgraph-agents
-validation_status: mirrors the registry as of 2026-09-18; names are checked against it by tests/test_workflow_catalogue.py
+validation_status: mirrors the registry as of 2026-09-21; names are checked against it by tests/test_workflow_catalogue.py
 status: draft
 tags: [catalogue, workflows, monty, data]
 ---
@@ -25,12 +25,13 @@ prevent. This note carries **judgment**: what each workflow is for, what it
 costs, and when it is the wrong tool. The exact signature arrives with the
 routing request, generated from the registry.
 
-## The five that exist
+## The six that exist
 
 | Workflow | What it gives | Geometry | Source | Input source |
 |---|---|---|---|---|
 | `fetch_place_context` | Bounding box, country and admin region for a **place name**; counts of the buildings, homes, apartments, commercial premises, hospitals and schools mapped inside it; and the disaster record matching the dates | **Place name** -> bounding box | [[OpenStreetMap Nominatim]] + [[OpenStreetMap Overpass]], [[GDACS disaster register]] | 21, 22; partly 10 and 12 |
 | `fetch_weather_data` | Cloud cover, hourly and daily rain, wind, shortwave radiation, and two soil-moisture layers | **One point** | [[ERA5-Land via Open-Meteo Archive]] | 1 |
+| `fetch_weather_grid` | The same variables plus gusts, pressure, ET0 and humidity, sampled across the AOI and aggregated per hour (mean / max / p90 / area fraction), with storm totals, antecedent index, rain bursts and the sensor-gate inputs | **Bounding box** | [[ERA5-Land via Open-Meteo Archive]] | 1 |
 | `fetch_lulc_data` | Six land-cover indices -- NDVI, NDBI, [[BUI]], NDMI, NMDI, [[MNDWI]] -- from the most recent usable scene | **Bounding box** | [[Sentinel-2 C1 L2A]] | 2 |
 | `fetch_terrain_data` | Elevation and slope statistics; cached, because terrain does not change | **Bounding box** | [[Copernicus DEM GLO-30]] | 3 |
 | `fetch_permanent_water` | Permanent and seasonal water extent, so a river in its channel is not counted as flood | **Bounding box** | [[JRC Global Surface Water]] | 4 |
@@ -38,15 +39,21 @@ routing request, generated from the registry.
 None needs an account, a key or asset signing.
 
 **`fetch_place_context` is the one that produces a bounding box.** The other
-four consume one. If a request names a place and no geometry has been settled,
+five consume one. If a request names a place and no geometry has been settled,
 this is the first call, not a guess at coordinates.
 
 ## What a router needs to know before choosing one
 
 - **Point against bounding box.** `fetch_weather_data` takes a single point;
-  three take a bounding box; `fetch_place_context` takes a **place name** and
-  is the only one that returns a box rather than requiring one. Sending the
-  wrong geometry is the most common routing mistake.
+  four take a bounding box; `fetch_place_context` takes a **place name** and is
+  the only one that returns a box rather than requiring one. Sending the wrong
+  geometry is the most common routing mistake.
+- **Two weather workflows, and they are not interchangeable.**
+  `fetch_weather_data` describes a point. `fetch_weather_grid` describes an
+  area and produces the sensor-gate inputs the MCDM reads -- see
+  [[Weather output schema]]. Asked "what was the weather over the AOI", the
+  grid one is the answer; asked for a single gauge-like series, the point one
+  is cheaper.
 - **The event lookup never gates the geometry.** Inside
   `fetch_place_context` the three lookups run in dependency order -- gazetteer,
   then Overpass, then GDACS -- and the last two may fail without costing the
@@ -62,9 +69,12 @@ this is the first call, not a guess at coordinates.
   counts included, because the Overpass requests are deliberately paced against
   a shared public endpoint. Ask for it once and keep the answer in the session
   record rather than re-deriving a bounding box that is already settled.
-- **Batch related work into one request.** Several tasks in one list each come
-  back as their own result. Two hops for work that could have gone together
-  wastes a delegation.
+- **Send one workflow per request.** Pick the single workflow that answers the
+  question actually asked. Three results arriving at once bury the one that was
+  wanted, and `core/graph.py` enforces the cap -- a surplus task is deferred and
+  named, not run. If more data is needed afterwards, say so as the next step and
+  let the user ask. (This reverses earlier guidance to batch; the reason is
+  legibility of the answer, not cost.)
 - **Rasters go to disk, statistics come back in the JSON.** Nothing returns an
   array.
 - **`valid_fraction` travels with every EO statistic.** Every mean is a mean
@@ -104,4 +114,4 @@ extent. Read the counts as context, not as the dataset.
 
 ---
 
-Related: [[Workflows-MOC]] | [[Citadel flows - MOC]] | [[Citadel input sources]] | [[Agent Argos - Orchestrator]] | [[Monty - Python expert]] | [[Sentinel-2 C1 L2A]] | [[Copernicus DEM GLO-30]] | [[JRC Global Surface Water]] | [[ERA5-Land via Open-Meteo Archive]] | [[OpenStreetMap Nominatim]] | [[OpenStreetMap Overpass]] | [[GDACS disaster register]]
+Related: [[Workflows-MOC]] | [[Citadel flows - MOC]] | [[Citadel input sources]] | [[Agent Argos - Orchestrator]] | [[Monty - Python expert]] | [[Sentinel-2 C1 L2A]] | [[Copernicus DEM GLO-30]] | [[JRC Global Surface Water]] | [[ERA5-Land via Open-Meteo Archive]] | [[Weather output schema]] | [[OpenStreetMap Nominatim]] | [[OpenStreetMap Overpass]] | [[GDACS disaster register]]
