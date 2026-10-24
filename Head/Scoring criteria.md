@@ -107,6 +107,26 @@ Authorised User triggered an activation.
 stay safe, so that choice stays open on its own merits rather than being forced
 by this problem.
 
+**Amended 2026-09-22 -- what this ruling does and does not cover.** The cloud
+gate in [[Flood_mask_Dataset_MCDA]] was removed on that date, so a heavily
+clouded optical product is now penalised and ranked rather than pruned. That
+looks like a reversal of this ruling and is not one, but the distinction is
+narrow enough to be worth stating:
+
+- This ruling governs **existence** -- does the product cover this AOI and this
+  date at all. Binary, permanent, knowable before any scoring. EMS Rapid
+  Mapping either was activated or was not.
+- Cloud is **conditional observability** -- it varies hour by hour, it was
+  already a scored criterion (`W1`), and the gate fired on a window mean rather
+  than on the per-overpass figure that actually decides feasibility.
+
+**The hazard named above is nonetheless live.** TOPSIS is compensatory, and on
+the Kelani event MODIS MCDWD ranks 3rd of 5 on a 23-year archive and daily
+revisit over an event it could barely observe. The mitigation is not another
+filter but a stated limit: **a rank is no longer a usability claim**, and `W1`
+must be read beside it. If that proves too weak in practice, the answer is to
+restore a gate on a per-overpass statistic, not on a window mean.
+
 ---
 
 ## 3. The filter is temporal as well as spatial

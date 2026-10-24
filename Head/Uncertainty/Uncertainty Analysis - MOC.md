@@ -50,14 +50,27 @@ subject.
 
 **Responses**
 - [[Sentinel-2 LULC uncertainty fields]] — coverage, saturation, scene selection and failure payloads
+- [[Accuracy metrics payload fields]] — where every number in the agreement table comes from
 
 **Knowledge**
 - [[BUI over NDBI - built-up index accuracy]] — what BUI corrects, what it does not, and by how much
 - [[Partial AOI coverage in Sentinel-2 scenes]] — when a result describes less area than was requested
+- [[Excluding the sea from AOI statistics]] — why a coastal bounding box is not the reporting domain
 - [[ERA5 cloud does not predict Sentinel-2 AOI usability]] — measured negative result: no weather-based scene pre-screen is safe
+- [[Agreement metrics for binary flood maps]] — what precision, recall, F1, IoU, MCC say, when each misleads, coverage first
+- [[UNOSAT FL20251128LKA flood reference]] — the validation reference: Sentinel-2, cumulative, no analysed extent
+- [[Validation against the UNOSAT reference]] — the Kelani validation: design, decisions, results so far
+- [[Labelled-sample validation - walkthrough]] — every step of the stratified labelled sample: strata, labels, Stehman estimators, final metrics
+- [[Flood map validation - sources]] — full references for the validation notes
 
 **Criteria**
 - [[Built-up fraction as an MCDM criterion]] — reliability by AOI type, and why the error is a one-way bias
+- [[Metric rank versus TOPSIS rank]] — what the agreement order can and cannot say about the TOPSIS ranking
+
+**Validation.** Monty computes the agreement table (`accuracy_metrics`); Entro
+interprets it through the `accuracy_interpretation` flow, starting from
+[[Agreement metrics for binary flood maps]]. Every reading is agreement with
+the reference, never accuracy against ground truth.
 
 ---
 

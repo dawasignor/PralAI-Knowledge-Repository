@@ -151,7 +151,10 @@ product as independent criteria and the same design choice is counted twice.
 **Settle it before weights are set.**
 
 One gap remains beyond the five: **no accuracy figures** have been retrieved for
-any of the six, so that criterion cannot be scored yet.
+any of the six, so that criterion cannot be scored yet. Published figures are
+still missing; one **measured agreement** exists -- GFM against the UNOSAT
+reference for the Kelani event -- see [[Validation against the UNOSAT reference]].
+OPERA is pending data access, and MODIS and VIIRS have no archive for that event.
 
 The second gap — no passive-microwave mechanism note in this vault — **closed
 with the withdrawal of FloodScan**, which was the only product whose physics had

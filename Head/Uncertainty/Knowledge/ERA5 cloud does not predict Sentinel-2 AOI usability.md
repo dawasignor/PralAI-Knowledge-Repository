@@ -14,6 +14,17 @@ status: draft
 tags: [uncertainty, sentinel-2, optical, cloud, negative-result, experiment]
 ---
 
+> **Provenance caution, 2026-09-26.** The cloud values paired here were
+> probably not ERA5. If they came from `fetch_weather_data`, or any
+> Open-Meteo call without a model named, they were ECMWF IFS 9 km -- that
+> is what such a call returns, measured 72 of 72 hours at Edinburgh and
+> Tirupati. The calibration script was deleted, so which call was made,
+> and so which model answered, cannot be confirmed. The conclusion most likely
+> stands, because a model cell still says nothing about where the cloud is
+> in it. But read "ERA5" below as "model cloud, probably IFS 9 km", and
+> the ~25-31 km cell argument as applying to a 9 km cell. See
+> [[ECMWF IFS via Open-Meteo Archive]].
+
 ## Answer in one line
 
 **No.** Modelled ERA5 cloud cover, sampled at a scene's exact acquisition hour,

@@ -26,7 +26,25 @@ represent real ground:
 Everything else — cloud (8, 9, 10), cloud shadow (3), dark-area pixels (2),
 defective (1) and no-data (0) — is rejected and never reaches an index.
 
-Default threshold in the implementation: **`min_valid_fraction = 0.9`** (raised from 0.7 on 2026-08-27).
+Default threshold in the implementation: **`min_valid_fraction = 0.7`**
+(2026-09-22). It has been 0.7, then 0.9, then 0.8, and now 0.7 again -- the
+history matters, because two of those moves were decided against measurements
+that turned out to be false. See "Why the bar is 0.70" below.
+
+**The fraction is of the LAND, not of the bounding box.** The sea is excluded
+before anything is counted, so a coastal AOI's valid fraction describes the
+ground being analysed rather than being diluted by ocean that was never
+observable land. See [[Excluding the sea from AOI statistics]].
+
+**The threshold is judged on the land too -- since 2026-09-26.** Before that,
+scene *selection* counted the whole window, sea included, while the *reported*
+figure counted the land. A usually-clear sea voted on whether a scene passed:
+Kelani-west was selected on 0.7777 and reports 0.7416; Bangkok on 0.8686 and
+reports 0.8243. The probe and the confirmation now both count over the land
+mask, so the accepted figure is the reported one. Re-run on both events, the
+same scenes win; Bangkok's 18 Aug mosaic, the one that could have changed the
+answer, is 0.6293 of its land, not 0.665. Attempt records carry
+`valid_fraction_is_of: land`.
 
 ## Why it replaces the catalogue's cloud figure
 
@@ -99,11 +117,40 @@ cloud. Lowering `min_valid_fraction` to force a number produces a different
 measurement at lower confidence, not the same measurement — and over monsoon
 terrain the failure itself is a finding about optical EO.
 
-## Why the bar is 0.90 -- SETTLED
+## Why the bar is 0.70 -- SETTLED 2026-09-22
 
-The threshold is **0.9**, following the de-spiking convention of retaining only
-observations at **valid fraction >= 0.90**, with a loose global 3-sigma clip to
-remove gross outliers. `min_valid_fraction` was raised from 0.7 on 2026-08-27.
+The threshold is **0.7**. The 0.90 convention below is real and still worth
+citing, but it was weighed against Kelani measurements that were wrong.
+
+**The 0.8515 that justified the earlier 0.9 -> 0.8 move was an artefact and is
+withdrawn.** It came from a windowing bug that *translated* an overhanging AOI
+25 km east instead of truncating it, so it described drier ground nobody had
+asked about. Re-measured on the correct window, the same 2025-10-31 scene gives
+0.7287 over its own 0.904 of the AOI, and 0.7357 as a two-tile mosaic over the
+whole of it. **Any Kelani valid fraction quoted above 0.74 predates that fix and
+is void.**
+
+**The distribution is bimodal, and that is the whole argument.** Sweeping every
+acquisition date back 900 days from the event:
+
+| Threshold | Scene selected | Age at event | Valid fraction |
+|---|---|---|---|
+| 0.7 | 2025-10-31 mosaic | 24 days | 0.7357 |
+| 0.8, 0.85, 0.9 | 2025-03-20 mosaic | **249 days** | 0.9011 |
+
+Across the fifty dates between them the best full-AOI mosaic is 0.7361 and the
+next value above it is 0.9011 -- nothing occupies 0.74 to 0.90. So every
+threshold in that band selects the same scene: **0.8 costs exactly as much
+recency as 0.9 and guarantees less.** And 2025-03-20 is the driest point of the
+Kelani year describing a catchment that floods at its wettest.
+
+0.7 is therefore not a threshold chosen to admit a marginal scene. Below it
+this catchment has no pre-event optical observation at all, and the choice is
+between a baseline labelled 74% observed and no baseline. The cost -- up to 30%
+of the AOI unobserved behind a figure that still reads like a whole-AOI mean --
+is reported as an uncertainty section in the brief, not a footnote.
+
+## The 0.90 convention it departs from
 
 Citation: Martins Jr, C., Capodici, F., Ciraolo, G., & De Marchis, M.,
 "Shoreline compactness predicts reliability of Sentinel-1 water-area monitoring
