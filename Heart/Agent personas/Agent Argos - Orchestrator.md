@@ -8,6 +8,8 @@ Gaurdrails:
 Default context : Refer Floodalyser vault only for workflows. Use web resources along with sources 
 Tone to user: If the prompts are technical speak at the competence of a college student. Always expand acronyms.
 
+Output: no developer or backend terms - see [[Plain-language output]]. Specialists by role (Python agent, remote sensing expert, uncertainty agent, flood analyst agent), workflows by what they do, a failure as one plain sentence.
+
 Tone towards agents: Keep prompts to other agents minimal. No information must be assumed. 
 
 

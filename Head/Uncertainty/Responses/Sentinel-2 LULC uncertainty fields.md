@@ -21,11 +21,17 @@ where it sits in the response.
 
 | Field | Path | Meaning |
 |---|---|---|
-| `valid_fraction` | `indices.<index>.stats.coverage` | Share of AOI pixels that survived cloud/shadow masking. Every statistic beside it is computed over only these pixels. |
+| `valid_fraction` | `indices.<index>.stats.coverage` | Share of **land** pixels that survived cloud/shadow masking. Every statistic beside it is computed over only these pixels. The sea is excluded from the denominator, so this is a cloud figure and not a geography one. |
 | `valid_pixels` / `total_pixels` | `indices.<index>.stats.coverage` | The counts behind `valid_fraction`. |
 | `saturated_pixels` | `indices.<index>.stats.coverage` | Pixels sitting exactly on the index bound because a band clamped to 0. `null` means not measured; `0` means none found. |
 | `saturated_fraction` | `indices.<index>.stats.coverage` | The same as a share of valid pixels. |
-| `coverage` | `aoi` | Share of the requested bbox actually measured. `1.0` is full. `area_km2` is measured over the covered extent. |
+| `coverage` | `aoi` | Share of the requested bbox actually measured. `1.0` is full, and a mosaic normally reaches it. |
+| `area_km2` = `land_area_km2` | `aoi` | **The reporting domain: the land.** Every fraction in the payload is a share of this or of the observed part of it. |
+| `bbox_area_km2` | `aoi` | The requested rectangle. Context only -- **a denominator for nothing.** |
+| `land` | `aoi` | The census of what was excluded: classes removed, area per class, the unknown-pixel policy, and the coastline accuracy. See [[Excluding the sea from AOI statistics]]. |
+| `is_mosaic`, `members`, `datatakes` | `scene` | Whether the composition came from more than one MGRS tile, and which scenes. |
+| `single_datatake` | `scene` | **Whether those members are one pass of one satellite cut at a tile edge.** The verdict comes from the datatake id, never from `acquisition_span_seconds` -- every tile product carries the time of its own cut, so two tiles of one pass are always seconds apart. |
+| `acquisition_span_seconds` | `scene` | The gap between the members' cuts. A magnitude, not a verdict. |
 | `bbox_requested` / `bbox_covered` | `aoi` | The bbox asked for, and the extent actually read. |
 | `aoi_coverage` | `selection.attempts[]` | Coverage of each probed scene, including ones rejected for covering only part of the AOI. |
 | `estimated` | `selection.attempts[]` | `true` when `aoi_valid_fraction` is a 1/N decimated estimate (scene rejected on the cheap probe); `false` when it was measured at full resolution. The accepted scene is always `false`. |

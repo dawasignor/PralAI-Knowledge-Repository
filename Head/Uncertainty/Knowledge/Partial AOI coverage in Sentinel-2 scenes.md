@@ -1,7 +1,7 @@
 ---
 type: uncertainty
 uncertainty_kind: knowledge
-desc: Why a Sentinel-2 scene can cover only part of the requested AOI, and how fetch_lulc_data refuses rather than truncating
+desc: Why a Sentinel-2 scene can cover only part of the requested AOI, and how fetch_lulc_data mosaics the neighbouring tiles rather than truncating
 aliases: [partial AOI, AOI coverage, MGRS tile straddle, truncated bbox, bbox coverage, incomplete scene]
 keywords: [AOI, bbox, coverage, MGRS, tile, straddle, truncation, clamp, partial scene, area_km2, sentinel-2, footprint, min_aoi_coverage]
 sensor: Sentinel-2 MSI L2A
@@ -10,7 +10,7 @@ source_workflow: core/workflows/sentinel.py, core/workflows/_raster.py
 source_docs: [docs/fetch_lulc_data.md]
 context: head
 retrieval: Answer whether a Sentinel-2 result covers the whole area that was requested, what aoi.coverage means, and what happens when an AOI spans two MGRS tiles.
-validation_status: guard verified on a synthetic tile in tests; not yet exercised by a real straddling AOI
+validation_status: guard and mosaic both verified in tests and exercised live on the Kelani AOI, 2026-09-22
 status: draft
 tags: [uncertainty, sentinel-2, optical, aoi, coverage]
 ---
@@ -18,10 +18,16 @@ tags: [uncertainty, sentinel-2, optical, aoi, coverage]
 ## Answer in one line
 
 A Sentinel-2 scene is one MGRS tile, so an AOI can straddle two of them and be
-covered by neither alone. `fetch_lulc_data` **rejects** a scene that does not
-cover the whole AOI rather than returning statistics for the part it can see;
-`aoi.coverage` on every response says how much of the requested bbox was
-actually measured.
+covered by neither alone. `fetch_lulc_data` **rejects any single scene that
+does not cover the whole AOI, then mosaics the same-date scenes from the
+neighbouring tiles**; `aoi.coverage` on every response says how much of the
+requested bbox was actually measured.
+
+**The mosaic is a fallback, never a first choice.** A single scene is one
+acquisition, one sun angle and no seam, so it wins whenever one qualifies. The
+fallback is reached only on a typed exception -- "nothing was big enough" --
+so that a threshold the user set, "nothing was clear enough", is never worked
+around by code meant for a tile boundary.
 
 ## The failure mode this prevents
 

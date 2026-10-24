@@ -12,6 +12,8 @@ List of datasets:
 [[Copernicus DEM GLO-30]]
 [[JRC Global Surface Water]]
 [[ERA5-Land via Open-Meteo Archive]]
+[[ECMWF IFS via Open-Meteo Archive]]
+[[Live weather sources for an ongoing flood]]
 
 Where an AOI and a time frame come from, before any of the above is read:
 [[OpenStreetMap Nominatim]]

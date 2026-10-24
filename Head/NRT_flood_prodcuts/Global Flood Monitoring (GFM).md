@@ -143,6 +143,12 @@ historical event is covered — use 2015.
 Technical Specifications, which the PUM references. Needed before accuracy can
 be scored in [[Scoring criteria]].
 
+**Measured for one event (2026-10-11):** agreement with the UNOSAT reference
+over the Kelani AOI, Cyclone Ditwah -- F1 0.465, MCC 0.504, precision 0.962,
+recall 0.307, at **12% coverage** because the Exclusion Mask removes most of
+the AOI. One event, one AOI, an optical reference: an agreement figure, not
+the product's accuracy. See [[Validation against the UNOSAT reference]].
+
 ## Sources
 
 - Global Flood Monitoring (GFM) Product User Manual, GFM Deliverable 5.2,
