@@ -8,7 +8,7 @@ context: head
 retrieval: Answer what the Executive Summary contains, section by section, which placeholder fills each value, how each status chip is decided, and which parts an agent writes.
 source_of_truth: this note -- core/report_render.py reads the fenced block below at render time
 output_file: experiments/<slug>/12_executive_summary.md (+ 12_executive_summary.facts.json)
-validation_status: written 2026-10-25 from REFACTOR_PLAN Appendix D (template v2)
+validation_status: written 2026-10-25 from REFACTOR_PLAN Appendix D (template v2); depth and road passability added 2026-10-26 (calc_flood_depth, BUG-012)
 status: draft
 tags: [template, output, report, executive]
 ---
@@ -38,12 +38,13 @@ Prepared {{fact:last_updated}} · Verified by {{fact:verified_by}}
 
 ## At a glance
 {{tile:storm_total_mm|icon=rain}} {{tile:flooded_km2|icon=land}} {{tile:people_in_aoi|icon=people}}
-{{tile:roads_flooded_km|icon=road}} {{tile:hospitals_access_at_risk|icon=hospital}}
+{{tile:roads_flooded_km|icon=road}} {{tile:hospitals_access_at_risk|icon=hospital}} {{tile:flood_depth_m|icon=depth}}
 
 ## Areas that need attention
 ### 1. Roads and access {{chip:status_roads}}
 {{map:roads_hospitals}}
 {{fact:hospital_access_table}}
+{{fact:roads_passability}}
 {{fact:bridges_affected}}
 {{fact:slope_tree_road_notes}}
 ### 2. Food security {{chip:status_food}}
@@ -63,6 +64,7 @@ Prepared {{fact:last_updated}} · Verified by {{fact:verified_by}}
 | Watch | {{llm:decision_watch|max_words=40}} |
 
 ## How sure are we?
+{{fact:depth_uncertainty}}
 {{figure:uncertainty_traffic_lights}}
 
 ## Data we would need to say more

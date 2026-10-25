@@ -8,7 +8,7 @@ context: head
 retrieval: Answer what the Public Report contains, section by section, which placeholder fills each value, and which parts an agent writes.
 source_of_truth: this note -- core/report_render.py reads the fenced block below at render time
 output_file: experiments/<slug>/11_public_report.md (+ 11_public_report.facts.json)
-validation_status: written 2026-10-25 from REFACTOR_PLAN Appendix C (template v2)
+validation_status: written 2026-10-25 from REFACTOR_PLAN Appendix C (template v2); depth block added 2026-10-26 (calc_flood_depth, BUG-012)
 status: draft
 tags: [template, output, report, public]
 ---
@@ -44,6 +44,11 @@ that is not stored renders as "Not known yet", with the reason.
 {{map:where_am_i_overview}}
 ### Worst-affected areas
 {{figure:worst_localities_bar}}
+### How deep
+{{tile:flood_depth_m|icon=depth}}
+{{map:depth_map}}
+{{fact:depth_bands_table}}
+{{fact:depth_uncertainty}}
 > {{chip:advisory_10cm}} Even 10 cm of water is a risk for small children, pushchairs and trolleys.
 ### Buildings of interest
 {{pictogram:buildings_of_interest_counts}}
