@@ -27,6 +27,17 @@ five that are built:
 Outputs 6 (SMAA), 7 (uncertainty in NRT products) and 8 (road and transport
 risk) have slots but no renderer yet.
 
+## The two reports (registry v2, since 2026-10-25)
+
+Registry v2 numbers the outputs as **modules**: Module 1 data availability to
+Module 10 human health risks, rendered by `core/outputs.py`, then the two
+named reports. Their templates are **live** -- the renderer reads them:
+
+| # | Report | Template | Rendered by |
+|---|---|---|---|
+| 11 | Public Report (Flood bot) | [[Module 11 - Public report template]] | `core/report_render.py`, plus a facts sidecar |
+| 12 | Executive Summary (Chanakya) | [[Module 12 - Executive summary template]] | `core/report_render.py`, plus a facts sidecar |
+
 ## Do these templates drive the outputs?
 
 **No -- not yet.** They document the render; the renderer in code is the
