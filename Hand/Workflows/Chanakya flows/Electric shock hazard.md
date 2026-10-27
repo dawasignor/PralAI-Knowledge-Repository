@@ -19,7 +19,7 @@ tags: [workflow, citadel, energy, safety, electrocution]
 
 ## Node
 
-Conforms to [[Citadel node schema]]. One Citadel node, between two Argos ones.
+Conforms to [[Chanakya node schema]]. One Citadel node, between two Argos ones.
 
 | Field | Value |
 |---|---|
@@ -33,11 +33,11 @@ Conforms to [[Citadel node schema]]. One Citadel node, between two Argos ones.
 
 Sent by Argos when the user triggers this node: the user prompt, the user
 persona, and the session data for the whole exchange so far. The reply is
-shaped by all three -- see the rules in [[Citadel node schema]].
+shaped by all three -- see the rules in [[Chanakya node schema]].
 
 ## Inputs required
 
-`[3, 4, 5, 9, 13, 16, 20]` -- indexes [[Citadel input sources]]. Sources 7 and above
+`[3, 4, 5, 9, 13, 16, 20]` -- indexes [[Chanakya input sources]]. Sources 7 and above
 are named but not wired, so this flow cannot run end to end today.
 
 ## Knowledge
@@ -79,4 +79,4 @@ analysis, check the uncertainty with Entro, or run another flow.
 
 ---
 
-Related: [[Citadel flows - MOC]] | [[Citadel node schema]] | [[Citadel input sources]] | [[Agent Citadel - City Planner]] | [[Agent Argos - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]]
+Related: [[Chanakya flows - MOC]] | [[Chanakya node schema]] | [[Chanakya input sources]] | [[Agent Chanakya - City Planner]] | [[Agent Argus - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]]

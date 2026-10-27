@@ -1,31 +1,31 @@
 ---
 type: workflow
 nexus: other
-desc: Hazard arriving from the water body itself - river discharge, backwater and coastal or tidal influence - as distinct from rainfall falling on the AOI
-aliases: [river hazard, ocean hazard, coastal flooding, fluvial, storm surge, tidal]
-keywords: [river, discharge, gauge, fluvial, coastal, ocean, storm surge, tide, backwater, estuary, sea level, compound flooding]
+desc: Buildings that cannot simply be replaced - cultural and heritage structures - together with the residential water-displacement risk of flooding inside homes
+aliases: [cultural heritage flood, heritage buildings, water displacement, flood in homes, residential flooding]
+keywords: [cultural heritage, heritage building, monument, place of worship, water displacement, home flooding, residential, displacement, building fabric, irreplaceable]
 agent: citadel
-parent_workflow: River and ocean hazard
+parent_workflow: Cultural heritage and home flooding risk
 workflow_order: 1
 prev_node: argos
 next_node: argos
-inputs_required: [1, 3, 4, 5, 19]
+inputs_required: [3, 4, 5, 9, 10, 18]
 context: hand
-retrieval: Answer how much of the AOI hazard comes from the river or the sea rather than from local rainfall, and what that changes about the response.
+retrieval: Answer which cultural and heritage buildings are vulnerable to the flood, and where floodwater entering homes displaces residents.
 validation_status: flow card written 2026-09-15; the knowledge half is still empty - no evidence, no source cited
 status: stub
-tags: [workflow, citadel, other, river, coastal]
+tags: [workflow, citadel, other, heritage, displacement]
 ---
 
 ## Node
 
-Conforms to [[Citadel node schema]]. One Citadel node, between two Argos ones.
+Conforms to [[Chanakya node schema]]. One Citadel node, between two Argos ones.
 
 | Field | Value |
 |---|---|
 | `prev_node` | Argos, carrying the user input |
-| `title` | River and ocean hazard |
-| `parent_workflow` | River and ocean hazard |
+| `title` | Cultural heritage and home flooding risk |
+| `parent_workflow` | Cultural heritage and home flooding risk |
 | `workflow_order` | 1 |
 | `next_node` | Argos, to update the session and log and answer the user |
 
@@ -33,11 +33,11 @@ Conforms to [[Citadel node schema]]. One Citadel node, between two Argos ones.
 
 Sent by Argos when the user triggers this node: the user prompt, the user
 persona, and the session data for the whole exchange so far. The reply is
-shaped by all three -- see the rules in [[Citadel node schema]].
+shaped by all three -- see the rules in [[Chanakya node schema]].
 
 ## Inputs required
 
-`[1, 3, 4, 5, 19]` -- indexes [[Citadel input sources]]. Sources 7 and above
+`[3, 4, 5, 9, 10, 18]` -- indexes [[Chanakya input sources]]. Sources 7 and above
 are named but not wired, so this flow cannot run end to end today.
 
 ## Knowledge
@@ -62,7 +62,7 @@ looking sourced.
 ## Flow card
 
 **Written.** The procedure lives in the repo at
-`agents/citadel/workflows/river_and_ocean_hazard.md`, loaded by `core.spec.load_flow` and
+`agents/citadel/workflows/cultural_heritage_and_home_flooding_risk.md`, loaded by `core.spec.load_flow` and
 overlaid on Citadel for one call. The card holds the five-step spine and the
 output rules; it holds **no figures** -- those are retrieved from this note, so
 the two cannot drift.
@@ -77,6 +77,8 @@ a prompt.
 Close by offering the user a choice: ask something specific about this
 analysis, check the uncertainty with Entro, or run another flow.
 
+**Open: whether this is one flow or two.** The user listed cultural buildings and home water-displacement in one line, separated by a semicolon. They share inputs 10 and 3 but answer to different audiences - a conservation authority and a housing or relief authority. Kept as one note until ruled.
+
 ---
 
-Related: [[Citadel flows - MOC]] | [[Citadel node schema]] | [[Citadel input sources]] | [[Agent Citadel - City Planner]] | [[Agent Argos - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]]
+Related: [[Chanakya flows - MOC]] | [[Chanakya node schema]] | [[Chanakya input sources]] | [[Agent Chanakya - City Planner]] | [[Agent Argus - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]]

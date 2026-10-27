@@ -28,7 +28,7 @@ renumbered, because nodes cite it. Append new sources at the end.
 | 2 | Land-cover indices (NDVI, NDBI, BUI, NDMI, NMDI, MNDWI) | Sentinel-2 L2A | `fetch_lulc_data` |
 | 3 | Elevation and slope | Copernicus DEM GLO-30 | `fetch_terrain_data` |
 | 4 | Permanent and seasonal water extent | JRC Global Surface Water | `fetch_permanent_water` |
-| 5 | Session context: AOI bounding box, region name, event and time window, demographics, and what the session has established so far | Argos, from [[Citadel session record]] | `active_context` on the node, plus the `read_session` tool |
+| 5 | Session context: AOI bounding box, region name, event and time window, demographics, and what the session has established so far | Argos, from [[Chanakya session record]] | `active_context` on the node, plus the `read_session` tool |
 | 6 | Vault knowledge notes | This vault | MCP retrieval |
 
 ## Named, not wired -- no code fetches these yet
@@ -70,4 +70,4 @@ hold for the AOIs this project runs over.
 
 ---
 
-Related: [[Citadel node schema]] | [[Citadel flows - MOC]] | [[Agent Citadel - City Planner]] | [[Workflows-MOC]]
+Related: [[Chanakya node schema]] | [[Chanakya flows - MOC]] | [[Agent Chanakya - City Planner]] | [[Workflows-MOC]]

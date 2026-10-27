@@ -57,4 +57,4 @@ session log and the session folder, where a developer looks.
 Precision stays: figures keep their units and their denominators. Plain
 language is less internal, not less exact.
 
-Related: [[Agent Argos - Orchestrator]] | [[Agent Personas - MOC]] | [[Heart-MOC]]
+Related: [[Agent Argus - Orchestrator]] | [[Agent Personas - MOC]] | [[Heart-MOC]]

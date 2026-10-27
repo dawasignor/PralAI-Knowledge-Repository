@@ -217,4 +217,4 @@ a verified global one.
 
 ---
 
-Related: [[Sewage and infection risk - sources]] | [[Citadel flows - MOC]] | [[Citadel node schema]] | [[Citadel input sources]] | [[Power outage and disruption risk]] | [[Drinking water scarcity]] | [[Agent Citadel - City Planner]] | [[Agent Argos - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]]
+Related: [[Sewage and infection risk - sources]] | [[Chanakya flows - MOC]] | [[Chanakya node schema]] | [[Chanakya input sources]] | [[Power outage and disruption risk]] | [[Drinking water scarcity]] | [[Agent Chanakya - City Planner]] | [[Agent Argus - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]]
