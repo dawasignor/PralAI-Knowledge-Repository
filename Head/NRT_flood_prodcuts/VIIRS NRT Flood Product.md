@@ -93,7 +93,7 @@ gap is materially better than one — and no current criterion expresses
 - **250 m grid from 375 m native pixels.** A flooded street, a breached
   embankment, an inundated neighbourhood are all far below one pixel. This
   product answers "is this basin flooding" and cannot answer "which district
-  flooded" — the question [[Agent Citadel - City Planner]] needs. The 250 m grid
+  flooded" — the question [[Agent Chanakya - City Planner]] needs. The 250 m grid
   is what is scored per [[Scoring criteria]] ruling 1; the 375 m native footprint
   is context only. Sharing MODIS's 250 m grid is deliberate — it is what lets the
   two archives concatenate, so ranking them apart on resolution would
@@ -134,4 +134,4 @@ not yet decided.
 
 ---
 
-Related: [[NRT products]] | [[MODIS NRT Flood Product]] | [[SAR versus optical for flood extent]] | [[Cloud compatibility]] | [[Global Flood Monitoring (GFM)]] | [[Flood_mask_Dataset_MCDA]] | [[Scoring criteria]] | [[Agent Citadel - City Planner]] | [[Agent Norwood - Satellite expert]] | [[Datasets-MOC]]
+Related: [[NRT products]] | [[MODIS NRT Flood Product]] | [[SAR versus optical for flood extent]] | [[Cloud compatibility]] | [[Global Flood Monitoring (GFM)]] | [[Flood_mask_Dataset_MCDA]] | [[Scoring criteria]] | [[Agent Chanakya - City Planner]] | [[Agent Norwood - Satellite expert]] | [[Datasets-MOC]]

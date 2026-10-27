@@ -1,31 +1,31 @@
 ---
 type: workflow
-nexus: other
-desc: Slope failure triggered or primed by the same rainfall as the flood - rockfall, treefall and landslide, and who sits below it
-aliases: [landslide risk, rockfall, treefall, slope failure, mass movement]
-keywords: [landslide, rockfall, treefall, slope stability, mass movement, antecedent rainfall, saturation, runout, terrain, slope angle]
+nexus: food
+desc: Whether households can still cook - electric, cylinder LPG or piped gas - and what each failure mode means for food security in the days after a flood
+aliases: [cooking fuel, LPG disruption, piped gas flood, cooking energy access]
+keywords: [cooking fuel, LPG, gas cylinder, piped gas, electric cooking, energy access, food preparation, fuel supply chain, household energy]
 agent: citadel
-parent_workflow: Rockfall treefall and landslide risk
+parent_workflow: Primary cooking fuel disruption
 workflow_order: 1
 prev_node: argos
 next_node: argos
-inputs_required: [1, 2, 3, 5, 8, 9, 17]
+inputs_required: [5, 8, 9, 13, 14, 16]
 context: hand
-retrieval: Answer where slope failure is likely in and around the AOI after the event rainfall, and who is exposed to its runout.
+retrieval: Answer which primary cooking fuel the affected households depend on, how the flood disrupts it, and what restores the ability to cook.
 validation_status: flow card written 2026-09-15; the knowledge half is still empty - no evidence, no source cited
 status: stub
-tags: [workflow, citadel, other, landslide, slope]
+tags: [workflow, citadel, food, energy, cooking fuel]
 ---
 
 ## Node
 
-Conforms to [[Citadel node schema]]. One Citadel node, between two Argos ones.
+Conforms to [[Chanakya node schema]]. One Citadel node, between two Argos ones.
 
 | Field | Value |
 |---|---|
 | `prev_node` | Argos, carrying the user input |
-| `title` | Rockfall treefall and landslide risk |
-| `parent_workflow` | Rockfall treefall and landslide risk |
+| `title` | Primary cooking fuel disruption |
+| `parent_workflow` | Primary cooking fuel disruption |
 | `workflow_order` | 1 |
 | `next_node` | Argos, to update the session and log and answer the user |
 
@@ -33,11 +33,11 @@ Conforms to [[Citadel node schema]]. One Citadel node, between two Argos ones.
 
 Sent by Argos when the user triggers this node: the user prompt, the user
 persona, and the session data for the whole exchange so far. The reply is
-shaped by all three -- see the rules in [[Citadel node schema]].
+shaped by all three -- see the rules in [[Chanakya node schema]].
 
 ## Inputs required
 
-`[1, 2, 3, 5, 8, 9, 17]` -- indexes [[Citadel input sources]]. Sources 7 and above
+`[5, 8, 9, 13, 14, 16]` -- indexes [[Chanakya input sources]]. Sources 7 and above
 are named but not wired, so this flow cannot run end to end today.
 
 ## Knowledge
@@ -62,7 +62,7 @@ looking sourced.
 ## Flow card
 
 **Written.** The procedure lives in the repo at
-`agents/citadel/workflows/rockfall_treefall_and_landslide_risk.md`, loaded by `core.spec.load_flow` and
+`agents/citadel/workflows/primary_cooking_fuel_disruption.md`, loaded by `core.spec.load_flow` and
 overlaid on Citadel for one call. The card holds the five-step spine and the
 output rules; it holds **no figures** -- those are retrieved from this note, so
 the two cannot drift.
@@ -79,4 +79,4 @@ analysis, check the uncertainty with Entro, or run another flow.
 
 ---
 
-Related: [[Citadel flows - MOC]] | [[Citadel node schema]] | [[Citadel input sources]] | [[Agent Citadel - City Planner]] | [[Agent Argos - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]]
+Related: [[Chanakya flows - MOC]] | [[Chanakya node schema]] | [[Chanakya input sources]] | [[Agent Chanakya - City Planner]] | [[Agent Argus - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]]

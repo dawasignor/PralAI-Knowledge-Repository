@@ -13,8 +13,8 @@ tags: [schema, session, workflow, citadel, argos]
 
 ## What it is
 
-Input source 5 on [[Citadel input sources]], and field 4 -- `active_context`
--- on [[Citadel node schema]]. One record per session, holding the facts that
+Input source 5 on [[Chanakya input sources]], and field 4 -- `active_context`
+-- on [[Chanakya node schema]]. One record per session, holding the facts that
 do not change between one message and the next.
 
 Before this existed each message started a fresh run. A follow-up question like
@@ -72,6 +72,6 @@ digest is what gets trimmed, and a trim is marked rather than silent.
 
 ## Related
 
-[[Citadel node schema]] - the nine fields, and where each one lives.
-[[Citadel input sources]] - the numbered registry this is source 5 of.
-[[Citadel flows - MOC]] - the flows that read it.
+[[Chanakya node schema]] - the nine fields, and where each one lives.
+[[Chanakya input sources]] - the numbered registry this is source 5 of.
+[[Chanakya flows - MOC]] - the flows that read it.

@@ -23,6 +23,7 @@ questions and should not be returned interchangeably.
 | `Responses/` | `response` | Literal payload shapes and field maps from a workflow. No rationale. | "Which field carries this, and what does a real one look like?" |
 | `Knowledge/` | `knowledge` | Accuracy and error behaviour of a measure, with numbers and citations. | "How wrong can this be, and in which direction?" |
 | `Criteria/` | `criterion` | How a measure enters the MCDM: direction, reliability by context, what must qualify it. | "Can I score on this, and at what weight?" |
+| `Levels/` | `level` | The four uncertainty levels every tool call is logged at, step by step: input data, tool call, pipeline, decision. | "At which step did this uncertainty enter, and at what level?" |
 
 Rule: a `Responses/` note carries **no design decisions** — it is what Entro
 parses. Reasoning belongs in `Knowledge/`; scoring consequences in `Criteria/`.
@@ -33,7 +34,7 @@ Every note tagged `uncertainty` carries, at minimum:
 
 | Key | Purpose |
 |---|---|
-| `uncertainty_kind` | `response` / `knowledge` / `criterion` / `index`. The routing key. |
+| `uncertainty_kind` | `response` / `knowledge` / `criterion` / `level` / `index`. The routing key. |
 | `aliases` | Alternate phrasings a query may use. |
 | `keywords` | Retrieval terms, including abbreviations and spelled-out forms. |
 | `sensor` | The instrument, when source-specific. |
@@ -66,6 +67,15 @@ subject.
 **Criteria**
 - [[Built-up fraction as an MCDM criterion]] — reliability by AOI type, and why the error is a one-way bias
 - [[Metric rank versus TOPSIS rank]] — what the agreement order can and cannot say about the TOPSIS ranking
+
+**Levels** (since 2026-10-25). Every tool call is logged as numbered steps, and
+each step carries its uncertainty at one of four levels. Entro reads the
+register with `read_uncertainty` and answers step by step through its
+`uncertainty_by_step` flow.
+- [[Uncertainty - Input data]] — IN: what a dataset carries before any processing
+- [[Uncertainty - Tool call]] — TOOL: what the processing did (valid fraction, coverage, sea, gaps)
+- [[Uncertainty - Pipeline]] — RUN: how the run went (source failures, fallbacks, cache)
+- [[Uncertainty - Decision]] — DEC: how firm a conclusion is (weights, gates, the product chosen)
 
 **Validation.** Monty computes the agreement table (`accuracy_metrics`); Entro
 interprets it through the `accuracy_interpretation` flow, starting from

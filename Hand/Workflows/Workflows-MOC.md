@@ -18,7 +18,7 @@ They are different objects and the difference decides who runs them.
 | Kind | What it is | Who runs it | Catalogue |
 |---|---|---|---|
 | **Data workflow** | A registered Python function that fetches data and returns JSON | Monty | [[Monty data workflows]] |
-| **Citadel flow** | An analysis defined by a prompt card plus a knowledge note | Citadel | [[Citadel flows - MOC]] |
+| **Citadel flow** | An analysis defined by a prompt card plus a knowledge note | Citadel | [[Chanakya flows - MOC]] |
 | **Decision method** | A method for choosing between options | Norwood, with Entro | listed below |
 
 A Citadel flow **consumes** data workflows as inputs. It does not replace them,
@@ -36,15 +36,15 @@ names arrive with the routing request, generated from `core/workflows/`.
 ## Citadel flows
 
 Eleven analyses across the water-food-energy nexus, catalogued in
-[[Citadel flows - MOC]]. Written so far:
+[[Chanakya flows - MOC]]. Written so far:
 
 - [[Sewage and infection risk]] -- **draft**. Wastewater hazard, exposure,
   vulnerability, recommendation and uncertainty, with
   [[Sewage and infection risk - sources]] carrying the full references.
 
-The rest are stubs. [[Citadel node schema]] defines what a node is and the
+The rest are stubs. [[Chanakya node schema]] defines what a node is and the
 `User -> Argos -> Citadel -> Argos -> User` path they all follow;
-[[Citadel input sources]] is the numbered list their `inputs_required` cites.
+[[Chanakya input sources]] is the numbered list their `inputs_required` cites.
 
 ## Decision methods
 
@@ -56,4 +56,4 @@ The rest are stubs. [[Citadel node schema]] defines what a node is and the
 
 ---
 
-Related: [[Monty data workflows]] | [[Citadel flows - MOC]] | [[Citadel input sources]] | [[Citadel node schema]] | [[Hand-MOC]] | [[Agent Argos - Orchestrator]]
+Related: [[Monty data workflows]] | [[Chanakya flows - MOC]] | [[Chanakya input sources]] | [[Chanakya node schema]] | [[Hand-MOC]] | [[Agent Argus - Orchestrator]]

@@ -155,4 +155,4 @@ Hygiene. <https://washdata.org/>
 
 ---
 
-Related: [[Sewage and infection risk]] | [[Citadel flows - MOC]] | [[Citadel node schema]] | [[Citadel input sources]] | [[Agent Citadel - City Planner]] | [[Entro - Uncertainty Analyser]]
+Related: [[Sewage and infection risk]] | [[Chanakya flows - MOC]] | [[Chanakya node schema]] | [[Chanakya input sources]] | [[Agent Chanakya - City Planner]] | [[Entro - Uncertainty Analyser]]
