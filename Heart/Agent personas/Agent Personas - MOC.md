@@ -1,8 +1,8 @@
 5 Agents
 
 Satellite - [[Agent Norwood - Satellite expert]]
-Orchestrator- [[Agent Argos - Orchestrator]]
+Orchestrator- [[Agent Argus - Orchestrator]]
 Python expert - [[Monty - Python expert]]
 Uncertainty Agent- [[Entro - Uncertainty Analyser]]
-Decision assistant - [[Agent Citadel - City Planner]]
+Decision assistant - [[Agent Chanakya - City Planner]]
 

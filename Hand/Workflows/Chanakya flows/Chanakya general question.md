@@ -19,7 +19,7 @@ tags: [workflow, citadel, general question, session]
 
 ## Node
 
-Conforms to [[Citadel node schema]]. The first of Citadel's two paths.
+Conforms to [[Chanakya node schema]]. The first of Citadel's two paths.
 
 | Field | Value |
 |---|---|
@@ -64,8 +64,8 @@ repeats was already sourced by the flow that produced it.
 
 Offer the user a choice: ask something further, check uncertainty with
 [[Entro - Uncertainty Analyser]], or run one of the flows in
-[[Citadel flows - MOC]].
+[[Chanakya flows - MOC]].
 
 ---
 
-Related: [[Citadel flows - MOC]] | [[Citadel node schema]] | [[Citadel input sources]] | [[Agent Citadel - City Planner]] | [[Agent Argos - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]]
+Related: [[Chanakya flows - MOC]] | [[Chanakya node schema]] | [[Chanakya input sources]] | [[Agent Chanakya - City Planner]] | [[Agent Argus - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]]

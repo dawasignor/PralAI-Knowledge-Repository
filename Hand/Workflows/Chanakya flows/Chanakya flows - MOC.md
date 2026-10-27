@@ -18,15 +18,15 @@ Citadel's workflows, aimed at the **water-food-energy resource nexus** with
 flood reaches the people who depend on that resource.
 
 Every flow runs over the same area and the same time window, settled once per
-session and held in [[Citadel session record]].
+session and held in [[Chanakya session record]].
 
-Read [[Citadel node schema]] first: it defines a node, the nine fields, and the
+Read [[Chanakya node schema]] first: it defines a node, the nine fields, and the
 fixed `User -> Argos -> Citadel -> Argos -> User` path all of these follow.
-Inputs are cited by number from [[Citadel input sources]].
+Inputs are cited by number from [[Chanakya input sources]].
 
 ## The two paths
 
-- [[Citadel general question]] -- answers from the session so far. No queries.
+- [[Chanakya general question]] -- answers from the session so far. No queries.
 - An analysis flow below -- Citadel autonomously runs a set of queries.
 
 ## The flows
@@ -65,4 +65,4 @@ Status runs `stub -> draft -> verified`.
 
 ---
 
-Related: [[Citadel node schema]] | [[Citadel session record]] | [[Citadel input sources]] | [[Citadel general question]] | [[Agent Citadel - City Planner]] | [[Agent Argos - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]] | [[Hand-MOC]]
+Related: [[Chanakya node schema]] | [[Chanakya session record]] | [[Chanakya input sources]] | [[Chanakya general question]] | [[Agent Chanakya - City Planner]] | [[Agent Argus - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]] | [[Hand-MOC]]

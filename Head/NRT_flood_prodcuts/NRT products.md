@@ -163,4 +163,4 @@ mechanism notes.
 
 ---
 
-Related: [[Datasets-MOC]] | [[Head-MOC]] | [[SAR versus optical for flood extent]] | [[SAR]] | [[Cloud compatibility]] | [[Wind compatibility]] | [[Bragg Scattering Criterion]] | [[Scene usability - SCL valid fraction]] | [[Flood_mask_Dataset_MCDA]] | [[Scoring criteria]] | [[SMAA]] | [[Sensitivity Analysis]] | [[Agent Norwood - Satellite expert]] | [[Entro - Uncertainty Analyser]] | [[Agent Citadel - City Planner]]
+Related: [[Datasets-MOC]] | [[Head-MOC]] | [[SAR versus optical for flood extent]] | [[SAR]] | [[Cloud compatibility]] | [[Wind compatibility]] | [[Bragg Scattering Criterion]] | [[Scene usability - SCL valid fraction]] | [[Flood_mask_Dataset_MCDA]] | [[Scoring criteria]] | [[SMAA]] | [[Sensitivity Analysis]] | [[Agent Norwood - Satellite expert]] | [[Entro - Uncertainty Analyser]] | [[Agent Chanakya - City Planner]]

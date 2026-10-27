@@ -68,7 +68,7 @@ or accuracy matters — the product does not exist there. That is why
 
 **Grading is unique in this tier.** Every other candidate answers "where is the
 water". Grading answers "how badly is it damaged" — an impact assessment, not a
-flood mask. That is the output [[Agent Citadel - City Planner]] ultimately needs,
+flood mask. That is the output [[Agent Chanakya - City Planner]] ultimately needs,
 and no algorithmic product here produces it. It is also the closest thing in the
 tier to what [[flood_damage_query]] is reaching for.
 
@@ -137,4 +137,4 @@ probably the more valuable one for the thesis.
 
 ---
 
-Related: [[NRT products]] | [[Global Flood Monitoring (GFM)]] | [[Flood_mask_Dataset_MCDA]] | [[SMAA]] | [[Sensitivity Analysis]] | [[Scoring criteria]] | [[flood_damage_query]] | [[Agent Citadel - City Planner]] | [[Agent Norwood - Satellite expert]] | [[Datasets-MOC]]
+Related: [[NRT products]] | [[Global Flood Monitoring (GFM)]] | [[Flood_mask_Dataset_MCDA]] | [[SMAA]] | [[Sensitivity Analysis]] | [[Scoring criteria]] | [[flood_damage_query]] | [[Agent Chanakya - City Planner]] | [[Agent Norwood - Satellite expert]] | [[Datasets-MOC]]

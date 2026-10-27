@@ -1,31 +1,31 @@
 ---
 type: workflow
-nexus: energy
-desc: Which parts of the electricity network the flood takes down, what that cascades into, and how long restoration realistically takes
-aliases: [power outage, electricity disruption, grid failure flood, substation flooding]
-keywords: [power outage, electricity, grid, substation, distribution network, restoration, cascade, critical load, backup generation]
+nexus: water
+desc: Loss of safe drinking water after a flood - what supply is compromised, for how long, and the plan that restores it
+aliases: [drinking water scarcity, water supply failure, potable water, water plan]
+keywords: [drinking water, potable, water supply, scarcity, contamination, boil advisory, water trucking, JMP, service level, restoration]
 agent: citadel
-parent_workflow: Power outage and disruption risk
+parent_workflow: Drinking water scarcity
 workflow_order: 1
 prev_node: argos
 next_node: argos
-inputs_required: [1, 3, 4, 5, 9, 13, 16]
+inputs_required: [1, 4, 5, 8, 9, 15, 16, 20]
 context: hand
-retrieval: Answer which electricity assets and customers are at risk of outage in the AOI, what the outage cascades into, and what shortens it.
+retrieval: Answer which drinking-water supply is compromised in the AOI, who loses access, and what the restoration plan should be.
 validation_status: flow card written 2026-09-15; the knowledge half is still empty - no evidence, no source cited
 status: stub
-tags: [workflow, citadel, energy, power, outage]
+tags: [workflow, citadel, water, drinking water, wash]
 ---
 
 ## Node
 
-Conforms to [[Citadel node schema]]. One Citadel node, between two Argos ones.
+Conforms to [[Chanakya node schema]]. One Citadel node, between two Argos ones.
 
 | Field | Value |
 |---|---|
 | `prev_node` | Argos, carrying the user input |
-| `title` | Power outage and disruption risk |
-| `parent_workflow` | Power outage and disruption risk |
+| `title` | Drinking water scarcity |
+| `parent_workflow` | Drinking water scarcity |
 | `workflow_order` | 1 |
 | `next_node` | Argos, to update the session and log and answer the user |
 
@@ -33,11 +33,11 @@ Conforms to [[Citadel node schema]]. One Citadel node, between two Argos ones.
 
 Sent by Argos when the user triggers this node: the user prompt, the user
 persona, and the session data for the whole exchange so far. The reply is
-shaped by all three -- see the rules in [[Citadel node schema]].
+shaped by all three -- see the rules in [[Chanakya node schema]].
 
 ## Inputs required
 
-`[1, 3, 4, 5, 9, 13, 16]` -- indexes [[Citadel input sources]]. Sources 7 and above
+`[1, 4, 5, 8, 9, 15, 16, 20]` -- indexes [[Chanakya input sources]]. Sources 7 and above
 are named but not wired, so this flow cannot run end to end today.
 
 ## Knowledge
@@ -62,7 +62,7 @@ looking sourced.
 ## Flow card
 
 **Written.** The procedure lives in the repo at
-`agents/citadel/workflows/power_outage_and_disruption_risk.md`, loaded by `core.spec.load_flow` and
+`agents/citadel/workflows/drinking_water_scarcity.md`, loaded by `core.spec.load_flow` and
 overlaid on Citadel for one call. The card holds the five-step spine and the
 output rules; it holds **no figures** -- those are retrieved from this note, so
 the two cannot drift.
@@ -79,4 +79,4 @@ analysis, check the uncertainty with Entro, or run another flow.
 
 ---
 
-Related: [[Citadel flows - MOC]] | [[Citadel node schema]] | [[Citadel input sources]] | [[Agent Citadel - City Planner]] | [[Agent Argos - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]]
+Related: [[Chanakya flows - MOC]] | [[Chanakya node schema]] | [[Chanakya input sources]] | [[Agent Chanakya - City Planner]] | [[Agent Argus - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]]

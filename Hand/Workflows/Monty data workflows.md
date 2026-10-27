@@ -187,7 +187,7 @@ that box. Never guess coordinates.
 
 ## What is missing entirely
 
-Inputs 7 to 20 in [[Citadel input sources]] have **no workflow behind them** --
+Inputs 7 to 20 in [[Chanakya input sources]] have **no workflow behind them** --
 wastewater plants, INFORM, population, building footprints, road networks,
 health facilities, the electricity network, gauges. Every Citadel flow needs at
 least one of them, so no flow can run end to end on this catalogue alone.
@@ -201,4 +201,4 @@ register an exposure study would want.
 
 ---
 
-Related: [[Flood_mask_Dataset_MCDA]] | [[Sensitivity Analysis]] | [[SMAA]] | [[Workflows-MOC]] | [[Citadel flows - MOC]] | [[Citadel input sources]] | [[Agent Argos - Orchestrator]] | [[Monty - Python expert]] | [[Sentinel-2 C1 L2A]] | [[Copernicus DEM GLO-30]] | [[JRC Global Surface Water]] | [[ERA5-Land via Open-Meteo Archive]] | [[Weather output schema]] | [[OpenStreetMap Nominatim]] | [[OpenStreetMap Overpass]] | [[GDACS disaster register]]
+Related: [[Flood_mask_Dataset_MCDA]] | [[Sensitivity Analysis]] | [[SMAA]] | [[Workflows-MOC]] | [[Chanakya flows - MOC]] | [[Chanakya input sources]] | [[Agent Argus - Orchestrator]] | [[Monty - Python expert]] | [[Sentinel-2 C1 L2A]] | [[Copernicus DEM GLO-30]] | [[JRC Global Surface Water]] | [[ERA5-Land via Open-Meteo Archive]] | [[Weather output schema]] | [[OpenStreetMap Nominatim]] | [[OpenStreetMap Overpass]] | [[GDACS disaster register]]

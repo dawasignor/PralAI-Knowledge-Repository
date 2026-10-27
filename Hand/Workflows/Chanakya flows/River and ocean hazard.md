@@ -1,31 +1,31 @@
 ---
 type: workflow
-nexus: food
-desc: Whether households can still cook - electric, cylinder LPG or piped gas - and what each failure mode means for food security in the days after a flood
-aliases: [cooking fuel, LPG disruption, piped gas flood, cooking energy access]
-keywords: [cooking fuel, LPG, gas cylinder, piped gas, electric cooking, energy access, food preparation, fuel supply chain, household energy]
+nexus: other
+desc: Hazard arriving from the water body itself - river discharge, backwater and coastal or tidal influence - as distinct from rainfall falling on the AOI
+aliases: [river hazard, ocean hazard, coastal flooding, fluvial, storm surge, tidal]
+keywords: [river, discharge, gauge, fluvial, coastal, ocean, storm surge, tide, backwater, estuary, sea level, compound flooding]
 agent: citadel
-parent_workflow: Primary cooking fuel disruption
+parent_workflow: River and ocean hazard
 workflow_order: 1
 prev_node: argos
 next_node: argos
-inputs_required: [5, 8, 9, 13, 14, 16]
+inputs_required: [1, 3, 4, 5, 19]
 context: hand
-retrieval: Answer which primary cooking fuel the affected households depend on, how the flood disrupts it, and what restores the ability to cook.
+retrieval: Answer how much of the AOI hazard comes from the river or the sea rather than from local rainfall, and what that changes about the response.
 validation_status: flow card written 2026-09-15; the knowledge half is still empty - no evidence, no source cited
 status: stub
-tags: [workflow, citadel, food, energy, cooking fuel]
+tags: [workflow, citadel, other, river, coastal]
 ---
 
 ## Node
 
-Conforms to [[Citadel node schema]]. One Citadel node, between two Argos ones.
+Conforms to [[Chanakya node schema]]. One Citadel node, between two Argos ones.
 
 | Field | Value |
 |---|---|
 | `prev_node` | Argos, carrying the user input |
-| `title` | Primary cooking fuel disruption |
-| `parent_workflow` | Primary cooking fuel disruption |
+| `title` | River and ocean hazard |
+| `parent_workflow` | River and ocean hazard |
 | `workflow_order` | 1 |
 | `next_node` | Argos, to update the session and log and answer the user |
 
@@ -33,11 +33,11 @@ Conforms to [[Citadel node schema]]. One Citadel node, between two Argos ones.
 
 Sent by Argos when the user triggers this node: the user prompt, the user
 persona, and the session data for the whole exchange so far. The reply is
-shaped by all three -- see the rules in [[Citadel node schema]].
+shaped by all three -- see the rules in [[Chanakya node schema]].
 
 ## Inputs required
 
-`[5, 8, 9, 13, 14, 16]` -- indexes [[Citadel input sources]]. Sources 7 and above
+`[1, 3, 4, 5, 19]` -- indexes [[Chanakya input sources]]. Sources 7 and above
 are named but not wired, so this flow cannot run end to end today.
 
 ## Knowledge
@@ -62,7 +62,7 @@ looking sourced.
 ## Flow card
 
 **Written.** The procedure lives in the repo at
-`agents/citadel/workflows/primary_cooking_fuel_disruption.md`, loaded by `core.spec.load_flow` and
+`agents/citadel/workflows/river_and_ocean_hazard.md`, loaded by `core.spec.load_flow` and
 overlaid on Citadel for one call. The card holds the five-step spine and the
 output rules; it holds **no figures** -- those are retrieved from this note, so
 the two cannot drift.
@@ -79,4 +79,4 @@ analysis, check the uncertainty with Entro, or run another flow.
 
 ---
 
-Related: [[Citadel flows - MOC]] | [[Citadel node schema]] | [[Citadel input sources]] | [[Agent Citadel - City Planner]] | [[Agent Argos - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]]
+Related: [[Chanakya flows - MOC]] | [[Chanakya node schema]] | [[Chanakya input sources]] | [[Agent Chanakya - City Planner]] | [[Agent Argus - Orchestrator]] | [[Entro - Uncertainty Analyser]] | [[Workflows-MOC]]
