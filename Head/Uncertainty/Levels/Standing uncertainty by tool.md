@@ -120,6 +120,9 @@ attached to results; this note mirrors it for retrieval.
 
 ## calc_flood_depth - Flood depth
 
+**NOT AVAILABLE** -- the tool is switched off (2026-11-01); the code and these
+statements are kept for when it returns.
+
 **Data source (FwDET v2.1 on Copernicus DEM GLO-30).**
 - **What:** GLO-30 is a surface model, so building and canopy heights raise the edge elevations and depth is biased high (BUG-014); any error in the flood extent passes straight into depth.
 - **Affects:** depth bands, road passability and the people-in-depth bands.
@@ -137,10 +140,16 @@ attached to results; this note mirrors it for retrieval.
 
 ## assess_road_access - Road and hospital access
 
+**NOT AVAILABLE** -- the tool is switched off (2026-11-01); the code and these
+statements are kept for when it returns.
+
 - **Data source (OpenStreetMap (Overpass) + the flood extent).** Only roads OpenStreetMap has mapped are counted, and errors in the flood extent and depth carry through.
 - **Method.** A flooded road near a hospital uses an assumed 250 m distance. The passability thresholds (0.3 / 0.6 m) are user decision D-36; the article behind them was not read.
 
 ## check_slope_tree_roads - Slope-and-tree road notes
+
+**NOT AVAILABLE** -- the tool is switched off (2026-11-01); the code and these
+statements are kept for when it returns.
 
 - **Data source (Copernicus DEM GLO-30 + ESA WorldCover 2021 + OpenStreetMap).** Slope from GLO-30, tree cover from WorldCover 2021 and roads from OpenStreetMap, each with its own vintage and errors.
 - **Method.** The 30 degree threshold has no source yet, so the results are notes for road access, not a forecast of blockage.
@@ -157,8 +166,12 @@ attached to results; this note mirrors it for retrieval.
 
 ## search_previous_disasters - Previous disasters (before the event)
 
-- **Data source (GDACS (+ ReliefWeb if configured)).** GDACS records events big enough to raise an alert, so small floods are missing; ReliefWeb is not configured.
-- **Method.** A national search by date before the event; distance to the AOI is computed but nothing is filtered by it, and casualty figures are not kept.
+**Data source (GDACS, Copernicus EMS, UNOSAT, World Bank, ReliefWeb (if configured)).**
+- **What:** registers of events large enough to raise an alert, trigger a mapping activation or a World Bank assessment, so small and local floods are missing; national news and government reports come only through ReliefWeb, which needs an approved appname, and the Copernicus EMS public list starts in 2023.
+- **Affects:** the history reads as fewer and larger events than happened.
+- **Reduce:** configure ReliefWeb, and add the national disaster-loss database (DesInventar) where the government keeps one.
+
+**Method.** A national search by date before the event, one row per record and publisher, so one event can appear once per source; distance to the AOI is computed where a record has a location, but nothing is filtered by it, and casualty figures are not kept.
 
 ## accuracy_metrics - Agreement with a reference flood map
 
