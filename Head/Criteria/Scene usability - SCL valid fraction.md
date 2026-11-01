@@ -31,6 +31,14 @@ Default threshold in the implementation: **`min_valid_fraction = 0.7`**
 history matters, because two of those moves were decided against measurements
 that turned out to be false. See "Why the bar is 0.70" below.
 
+**0.7 throughout, no step-down (2026-11-01).** The 0.7 → 0.6 → 0.5 step-down
+of 2026-10-27 is removed. The tool runs at 0.7 whatever a caller sends (a
+model had sent 0.8 for Bangkok) and records what was sent. When no scene
+reaches 0.7, the land-cover shares for the ranking come from ESA WorldCover
+instead. The lookback is fixed the same way at **90 days**: a model had
+shortened it to 30 for Bangkok and found nothing above 0.7, while at 90 days
+the 18 Aug 2026 scene passes at 0.733.
+
 **The fraction is of the LAND, not of the bounding box.** The sea is excluded
 before anything is counted, so a coastal AOI's valid fraction describes the
 ground being analysed rather than being diluted by ocean that was never

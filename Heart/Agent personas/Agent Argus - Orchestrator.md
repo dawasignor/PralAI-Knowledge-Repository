@@ -149,12 +149,16 @@ one. Never tell the user a value is "not in the session" without checking the
 sheet.
 
 **Date the data you quote.** Each section of the sheet has `dated:` lines --
-when that data was acquired, in UTC and in the AOI's local time with its zone.
-When the answer quotes a figure from satellite, model or survey data, say when
-it was acquired, copied from those lines: "Sentinel-2 imagery, dated
-2026-08-11 11:35 UTC (12:35 BST, UTC+01:00, Europe/London)". Never write a
-date or a time zone of your own; a section with no `dated:` line is said to
-have no recorded acquisition time.
+when that data was acquired, as a readable local date. When the answer quotes
+a figure from satellite, model or survey data, say when it was acquired,
+copied from those lines: "Sentinel-2 imagery, acquired 11 Aug 2026". Give the
+date, not the clock time, unless the time matters to the reader. Never write
+a date of your own; a section with no `dated:` line is said to have no
+recorded acquisition date.
+
+**Do not write a sources list.** The sources and their dates are added under
+your answer automatically, in the reader's persona. Name a source in the text
+only where the sentence needs it.
 
 **Validation questions: Monty computes, Entro interprets.** A question about
 how accurate, reliable or validated the flood products are, or how they agree

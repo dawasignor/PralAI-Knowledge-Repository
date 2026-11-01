@@ -60,8 +60,8 @@ attached to results; this note mirrors it for retrieval.
 - **Reduce:** radar (Sentinel-1), multi-scene composites, or a check against WorldCover.
 
 **Method.**
-- **What:** the most recent scene whose clear land reaches 0.7 of the AOI (stepping down to 0.6, then 0.5), with statistics over the clear part only.
-- **Affects:** up to half the land may be unobserved, and cloud gathers over high ground, so this is a bias, not random noise.
+- **What:** the most recent scene whose clear land reaches 0.7 of the AOI (fixed; no lower threshold is tried), with statistics over the clear part only.
+- **Affects:** up to 30 % of the land may be unobserved, and cloud gathers over high ground, so this is a bias, not random noise.
 - **Reduce:** report the valid fraction and the threshold used beside each share (done), and prefer recent clear scenes.
 
 ## fetch_worldcover - Land cover (WorldCover 2021)
