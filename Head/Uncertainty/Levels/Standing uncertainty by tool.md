@@ -166,10 +166,10 @@ statements are kept for when it returns.
 
 ## search_previous_disasters - Previous disasters (before the event)
 
-**Data source (GDACS, Copernicus EMS, UNOSAT, World Bank, ReliefWeb (if configured)).**
-- **What:** registers of events large enough to raise an alert, trigger a mapping activation or a World Bank assessment, so small and local floods are missing; national news and government reports come only through ReliefWeb, which needs an approved appname, and the Copernicus EMS public list starts in 2023.
+**Data source (GDACS, Copernicus EMS, UNOSAT, World Bank).**
+- **What:** registers of events large enough to raise an alert, trigger a mapping activation or a World Bank assessment, so small and local floods are missing; national news and government reports are not searched, and the Copernicus EMS public list starts in 2023.
 - **Affects:** the history reads as fewer and larger events than happened.
-- **Reduce:** configure ReliefWeb, and add the national disaster-loss database (DesInventar) where the government keeps one.
+- **Reduce:** add a national source -- the disaster-loss database (DesInventar) where the government keeps one, or its disaster agency's situation reports.
 
 **Method.** A national search by date before the event, one row per record and publisher, so one event can appear once per source; distance to the AOI is computed where a record has a location, but nothing is filtered by it, and casualty figures are not kept.
 
