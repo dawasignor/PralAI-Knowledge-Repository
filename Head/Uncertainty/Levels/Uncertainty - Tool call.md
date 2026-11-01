@@ -41,8 +41,15 @@ level.
 - **Gaps withheld.** A missing weather hour withholds the figures that need it
   rather than counting as 0 mm.
 - **Resampling and allocation.** A WorldCover class averaged onto the DEM
-  grid; census GN divisions allocated to an AOI by centroid, with an edge band.
+  grid; WorldPop pixels summed by their centre, with the edge band as a range.
 - **Saturation and unclassified pixels.** Counted and reported.
+
+## The standing statements
+
+Besides what a run measures, every tool carries a standing data-source and
+method statement that holds for every run, with the model-uncertainty todo;
+they open the tool's block in the register. All nineteen are in
+[[Standing uncertainty by tool]].
 
 ## How to read it
 
@@ -52,4 +59,4 @@ observed land, the covered pixels) is read as a share of the whole AOI. Each
 item says what it is a share of. See [[Uncertainty - Input data]] for what the
 data already carried, and [[Uncertainty - Pipeline]] for how the run went.
 
-Related: [[Uncertainty Analysis - MOC]] | [[Sentinel-2 LULC uncertainty fields]]
+Related: [[Uncertainty Analysis - MOC]] | [[Sentinel-2 LULC uncertainty fields]] | [[Standing uncertainty by tool]]

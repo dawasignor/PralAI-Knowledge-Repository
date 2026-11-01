@@ -76,6 +76,7 @@ register with `read_uncertainty` and answers step by step through its
 - [[Uncertainty - Tool call]] — TOOL: what the processing did (valid fraction, coverage, sea, gaps)
 - [[Uncertainty - Pipeline]] — RUN: how the run went (source failures, fallbacks, cache)
 - [[Uncertainty - Decision]] — DEC: how firm a conclusion is (weights, gates, the product chosen)
+- [[Standing uncertainty by tool]] — DATA / METHOD / MODEL: what each tool's data source and method cannot tell you, for every run
 
 **Validation.** Monty computes the agreement table (`accuracy_metrics`); Entro
 interprets it through the `accuracy_interpretation` flow, starting from

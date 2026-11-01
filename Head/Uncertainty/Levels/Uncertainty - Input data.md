@@ -4,7 +4,7 @@ uncertainty_kind: level
 level: input
 desc: The first of the four uncertainty levels -- the inherent limits of a dataset, before any processing touches it
 aliases: [input data uncertainty, dataset uncertainty, input uncertainty, IN]
-keywords: [uncertainty, input, dataset, vintage, resolution, surface model, snapshot, model archive, mapped features, census, RQ6]
+keywords: [uncertainty, input, dataset, vintage, resolution, surface model, snapshot, model archive, mapped features, WorldPop, population, RQ6]
 workflows: [every tool]
 source_workflow: core/uncertainty.py
 retrieval: What uncertainty does a dataset carry before any tool processes it, and where is it recorded for a run?
@@ -43,8 +43,9 @@ and `read_uncertainty` prints them, one line each, tagged IN.
   ([[Scene usability - SCL valid fraction]]); WorldCover's published per-class
   accuracy, global and not measured for the AOI.
 - **Mapped features.** OpenStreetMap counts what is mapped, not what exists.
-- **A census vintage.** Population carries its year and whether it is
-  provisional or projected.
+- **A modelled population.** WorldPop Global2 R2025A spreads census totals
+  over mapped settlement with a random-forest model, for the year asked
+  (2015-2030); it is an estimate, not a count, and an alpha release.
 
 ## How to read it
 
