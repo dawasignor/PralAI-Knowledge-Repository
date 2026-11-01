@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Hand/Workflows/Citadel flows/Sewage and infection risk.md",
+                "file": "Head/Output templates/Module 8 - Sensitivity analysis template.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Sewage and infection risk"
+              "title": "Module 8 - Sensitivity analysis template"
             }
           }
         ],
@@ -202,12 +202,32 @@
             "state": {
               "type": "juggl_nodes",
               "state": {},
+              "icon": "lucide-ghost",
+              "title": "juggl_nodes"
+            }
+          },
+          {
+            "id": "34301224b8c1d282",
+            "type": "leaf",
+            "state": {
+              "type": "juggl_style",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "juggl_style"
+            }
+          },
+          {
+            "id": "e1fb7fb84feed024",
+            "type": "leaf",
+            "state": {
+              "type": "juggl_nodes",
+              "state": {},
               "icon": "ag-node-list",
               "title": "Juggl nodes"
             }
           },
           {
-            "id": "34301224b8c1d282",
+            "id": "9ff559bb245269e7",
             "type": "leaf",
             "state": {
               "type": "juggl_style",
@@ -238,6 +258,21 @@
   },
   "active": "090c0d5398de3b2c",
   "lastOpenFiles": [
+    "Head/Uncertainty/Levels/sedSCNygv",
+    "Head/Uncertainty/Levels/Standing uncertainty by tool.md",
+    "Head/Output templates/Output 5 - Sensitivity analysis template.md",
+    "Head/Output templates/Module 11 - Public report template.md",
+    "Head/Output templates/Module 1 - Data availability template.md",
+    "Head/Output templates/Output 2 - LULC info template.md",
+    "Heart/Agent personas/Agent Argos - Orchestrator.md",
+    "Hand/Workflows/Weather output schema.md",
+    "Hand/Workflows/Workflows-MOC.md",
+    "Hand/Workflows/Flood_mask_Dataset_MCDA.md",
+    "Head/Norwood pre-flood AOI brief schema.md",
+    "Hand/Workflows/Monty data workflows.md",
+    "Head/Criteria/Readiness to use.md",
+    "Head/Criteria/Wind compatibility.md",
+    "Hand/Workflows/Citadel flows/Sewage and infection risk.md",
     "Hand/Workflows/Citadel flows/Drinking water scarcity.md",
     "Hand/Workflows/Citadel flows/Electric shock hazard.md",
     "Hand/Workflows/Citadel flows/Citadel flows - MOC.md",
@@ -245,26 +280,11 @@
     "Hand/Workflows/Citadel flows/Citadel input sources.md",
     "Hand/Workflows/Citadel flows/Citadel general question.md",
     "Head/Spectral indices/NDBI.md",
-    "Hand/Workflows/Citadel flows/Sewage and infection risk.md",
     "Hand/Workflows/Citadel flows/River and ocean hazard.md",
     "Hand/Workflows/Citadel flows/Rockfall treefall and landslide risk.md",
     "Hand/Workflows/Citadel flows/Primary cooking fuel disruption.md",
     "Hand/Workflows/Citadel flows/Power outage and disruption risk.md",
-    "Hand/Workflows/Citadel flows/Food aid and relief estimation.md",
-    "Hand/Workflows/Citadel flows/Critical infrastructure and waterlogging.md",
-    "Hand/Workflows/Citadel flows/Citadel node schema.md",
     "Hand/Workflows/Citadel flows",
-    "Heart/Agent personas/Entro - Uncertainty Analyser.md",
-    "Heart/Agent personas/Agent Norwood - Satellite expert.md",
-    "Hand/Workflows/SMAA.md",
-    "Hand/Workflows/flood_damage_query.md",
-    "Hand/Workflows/Flood_mask_Dataset_MCDA.md",
-    "Hand/Workflows/Workflows-MOC.md",
-    "Head/Spectral indices/Xiao flooding rule for paddy.md",
-    "Head/Criteria/Bragg Scattering Criterion.md",
-    "Head/Criteria/Cloud compatibility.md",
-    "Head/NRT_flood_prodcuts/OPERA DSWx-HLS.md",
-    "Heart/Agent personas/Monty - Python expert.md",
     "Head/Spectral indices",
     "Head/Uncertainty/Criteria",
     "Head/Uncertainty/Knowledge",

@@ -8,7 +8,7 @@ context: head
 retrieval: Answer what the Public Report contains, section by section, which placeholder fills each value, and which parts an agent writes.
 source_of_truth: this note -- core/report_render.py reads the fenced block below at render time
 output_file: experiments/<slug>/11_public_report.md (+ 11_public_report.facts.json)
-validation_status: written 2026-10-25 from REFACTOR_PLAN Appendix C (template v2); depth block added 2026-10-26 (calc_flood_depth, BUG-012)
+validation_status: written 2026-10-25 from REFACTOR_PLAN Appendix C (template v2); depth block added 2026-10-26 (calc_flood_depth, BUG-012); section 2 shows the flood overlay (get_flood_map) instead of the plain OSM map, 2026-10-26 (BUG-021)
 status: draft
 tags: [template, output, report, public]
 ---
@@ -25,7 +25,12 @@ its label; `{{meter:key|min=0|max=10}}` a score on a scale; `{{chip:key}}` a
 status; `{{pictogram:key}}` counts; `{{figure:key}}` and `{{map:key}}` an
 image; `{{llm:slot|max_words=N}}` the only text an agent writes. Everything
 except `llm` is a fact, listed in the facts sidecar with its source. A value
-that is not stored renders as "Not known yet", with the reason.
+that is not stored renders as "Not known yet", with the reason; one that no
+source covers for the AOI's country yet renders as "Needs a data source for
+this country" (BUG-050). Reader text carries no developer codes, decision
+numbers or tool names, and numbers show three significant figures with
+shares as percentages; the facts sidecar keeps every reason as written
+(BUG-058, BUG-059).
 
 ## Template
 
@@ -41,7 +46,7 @@ that is not stored renders as "Not known yet", with the reason.
 
 ## 2. Where it flooded
 {{llm:location_description|max_words=60}}
-{{map:where_am_i_overview}}
+{{map:flood_overlay}}
 ### Worst-affected areas
 {{figure:worst_localities_bar}}
 ### How deep
@@ -68,7 +73,6 @@ Floods and storms recorded before {{fact:search_cutoff}}:
 {{figure:previous_disasters_timeline}}
 
 ## 5. How sure are we?
-{{map:flood_overlay}}
 {{meter:confidence|bands=low,medium,high}}
 {{fact:flood_product}} -- {{llm:why_product|max_words=25}}
 {{fact:top_uncertainty}}

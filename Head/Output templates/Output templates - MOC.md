@@ -1,54 +1,58 @@
 ---
 type: moc
-desc: Index of the rendered templates of thesis outputs 1-5 - what each output document looks like and which code renders it
-aliases: [output templates, thesis output templates, output render templates]
-keywords: [output templates, thesis outputs, render, weather, LULC, MCDM, ranking, sensitivity, experiment outputs, 01_weather_data, 02_lulc_info, 03_mcdm_matrix_pre, 04_mcdm_ranking, 05_sensitivity_analysis]
+desc: Index of the output templates - the twelve live module templates (registry v2) the renderer reads, and the five registry-v1 notes that describe the older outputs
+aliases: [output templates, thesis output templates, output render templates, module templates]
+keywords: [output templates, module templates, thesis outputs, render, live template, blocks, facts sidecar, data availability, weather, land use, terrain, permanent water, MCDM, ranking, sensitivity, essential services, human health, public report, executive summary]
 context: head
-retrieval: Answer which thesis outputs exist, what each rendered document looks like, which code renders it, and whether editing a template changes a run.
-validation_status: written 2026-10-21 from the renderers in langgraph-agents
+retrieval: Answer which outputs exist, which template each is rendered from, which code fills it, and whether editing a template changes a run.
+validation_status: written 2026-10-21 from the renderers in langgraph-agents; Modules 1-10 made live 2026-10-27
 status: draft
 tags: [moc, template, output, thesis]
 ---
 
-## The outputs
+## The modules (registry v2)
 
-The eight thesis outputs are fixed in `core/experiment.py::OUTPUTS`; each
-experiment writes them as `experiments/<slug>/NN_<slot>.md`. Templates for the
-five that are built:
+Every module is rendered from a **live** template here: `core/report_render.py`
+reads the note's fenced block at render time, so editing it changes the next
+output. Each run writes `NN_<slot>.md` and its facts sidecar
+`NN_<slot>.facts.json`.
 
-| # | Output | Template | Rendered by | Written by |
-|---|---|---|---|---|
-| 1 | Weather data | [[Output 1 - Weather data template]] | `core/reports.py::weather_markdown` | code, from `fetch_weather_grid` |
-| 2 | LULC info (pre-flood AOI brief) | [[Output 2 - LULC info template]] | `core/brief_report.py::brief_markdown` | **Norwood** writes the JSON brief; code renders it |
-| 3 | MCDM decision matrix (before the run) | [[Output 3 - MCDM decision matrix template]] | `core/mcdm_report.py::decision_matrix_markdown` | code, from `rank_flood_products` |
-| 4 | MCDM ranking | [[Output 4 - MCDM ranking template]] | `core/mcdm_report.py::ranking_markdown` | code, from `rank_flood_products` |
-| 5 | Sensitivity analysis | [[Output 5 - Sensitivity analysis template]] | `core/mcdm_report.py::sensitivity_markdown` | code, from `sensitivity_analysis` |
-
-Outputs 6 (SMAA), 7 (uncertainty in NRT products) and 8 (road and transport
-risk) have slots but no renderer yet.
-
-## The two reports (registry v2, since 2026-10-25)
-
-Registry v2 numbers the outputs as **modules**: Module 1 data availability to
-Module 10 human health risks, rendered by `core/outputs.py`, then the two
-named reports. Their templates are **live** -- the renderer reads them:
-
-| # | Report | Template | Rendered by |
+| # | Module | Template | Filled from |
 |---|---|---|---|
-| 11 | Public Report (Flood bot) | [[Module 11 - Public report template]] | `core/report_render.py`, plus a facts sidecar |
-| 12 | Executive Summary (Chanakya) | [[Module 12 - Executive summary template]] | `core/report_render.py`, plus a facts sidecar |
+| 1 | Data availability | [[Module 1 - Data availability template]] | `core/module_blocks.py` |
+| 2 | Weather data | [[Module 2 - Weather data template]] | `core/module_blocks.py` (the document itself: `core/reports.py::weather_markdown`) |
+| 3 | Land use before the event | [[Module 3 - Land use before the event template]] | `core/module_blocks.py`, with the remote sensing expert's brief |
+| 4 | Terrain and slope classes | [[Module 4 - Terrain and slope classes template]] | `core/module_blocks.py` |
+| 5 | Permanent water and structures | [[Module 5 - Permanent water and structures template]] | `core/module_blocks.py` |
+| 6 | MCDM decision matrix | [[Module 6 - MCDM decision matrix template]] | `core/module_blocks.py` (`core/mcdm_report.py::decision_matrix_markdown`) |
+| 7 | MCDM ranking | [[Module 7 - MCDM ranking template]] | `core/module_blocks.py` (`core/mcdm_report.py::ranking_markdown`) |
+| 8 | Sensitivity analysis | [[Module 8 - Sensitivity analysis template]] | `core/module_blocks.py` (`core/mcdm_report.py::sensitivity_markdown`) |
+| 9 | Essential services (HEV) | [[Module 9 - Essential services template]] | `core/module_blocks.py`, with the flood analyst agent's flows |
+| 10 | Human health risks (HEV) | [[Module 10 - Human health risks template]] | `core/module_blocks.py`, with the flood analyst agent's flows |
+| 11 | Public Report (Flood bot) | [[Module 11 - Public report template]] | the report facts in `core/report_render.py`, plus agent-written slots |
+| 12 | Executive Summary (Chanakya) | [[Module 12 - Executive summary template]] | the report facts in `core/report_render.py`, plus agent-written slots |
 
-## Do these templates drive the outputs?
+A template holds the headings, their order and every fixed sentence. Each
+`{{fact:...}}` is a fact (Modules 11-12) or a block (Modules 1-10) built in
+code from the stored results; either kind may be placed in any template. A
+value that is not stored renders "Not known yet -- <reason>"; a block with
+nothing to add renders nothing. Modules 11 and 12 need Modules 1-10 of the
+same run first (D-24).
 
-**No -- not yet.** They document the render; the renderer in code is the
-source of truth, and editing a note here changes nothing in the next run.
-Two exceptions to keep in mind:
+## The registry-v1 outputs (history)
 
-- **Output 2** has an agent behind it. Norwood reads
-  [[Norwood pre-flood AOI brief schema]] at run time, so editing THAT note can
-  change the brief it writes; validity is still decided by
-  `docs/norwood_preflood_brief.schema.json` in the repo.
-- Making these templates live means wiring the renderers to read their
-  section layout from the vault -- a code change, not decided yet.
+The eight registry-v1 outputs (`core/experiment.py::OUTPUTS_V1`) are kept as
+written in the experiments that used them. These notes **describe** their
+render; they never drove it. Four still describe a block of a live module:
+the weather document (Module 2), the decision matrix (Module 6), the ranking
+(Module 7) and the sweep (Module 8) are the same renderers.
+
+| # | Output | Template | Rendered by |
+|---|---|---|---|
+| 1 | Weather data | [[Output 1 - Weather data template]] | `core/reports.py::weather_markdown` |
+| 2 | LULC info (pre-flood AOI brief) | [[Output 2 - LULC info template]] | `core/brief_report.py::brief_markdown`; Norwood reads [[Norwood pre-flood AOI brief schema]] |
+| 3 | MCDM decision matrix (before the run) | [[Output 3 - MCDM decision matrix template]] | `core/mcdm_report.py::decision_matrix_markdown` |
+| 4 | MCDM ranking | [[Output 4 - MCDM ranking template]] | `core/mcdm_report.py::ranking_markdown` |
+| 5 | Sensitivity analysis | [[Output 5 - Sensitivity analysis template]] | `core/mcdm_report.py::sensitivity_markdown` |
 
 Related: [[Head-MOC]] | [[Weather output schema]] | [[Norwood pre-flood AOI brief schema]] | [[Flood_mask_Dataset_MCDA]] | [[Sensitivity Analysis]]
