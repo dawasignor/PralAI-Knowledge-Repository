@@ -14,6 +14,8 @@ status: draft
 tags: [template, output, module, flood-analyst]
 ---
 
+> **Health risks:** Sewage, drinking water, mosquitoes and mould after the flood, and what to do.
+
 ## What this is
 
 **This template is live.** `core/report_render.py` reads the fenced block

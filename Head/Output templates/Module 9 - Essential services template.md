@@ -14,6 +14,8 @@ status: draft
 tags: [template, output, module, flood-analyst]
 ---
 
+> **Essential services:** The flood's reach to hospitals, drinking water and food, the people affected, and what to do.
+
 ## What this is
 
 **This template is live.** `core/report_render.py` reads the fenced block

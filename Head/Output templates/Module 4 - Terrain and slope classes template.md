@@ -13,6 +13,8 @@ status: draft
 tags: [template, output, module, flood-analyst]
 ---
 
+> **Terrain:** How high and how steep the ground is.
+
 ## What this is
 
 **This template is live.** `core/report_render.py` reads the fenced block

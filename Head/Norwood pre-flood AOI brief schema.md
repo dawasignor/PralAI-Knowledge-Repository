@@ -12,6 +12,8 @@ status: draft
 tags: [schema, output, norwood, thesis]
 ---
 
+> **AOI brief:** The area before the flood, and how a flood map over it will behave.
+
 ## What this is
 
 The contract for **thesis output 2**: Norwood reporting to a human flood
@@ -83,6 +85,7 @@ in the numbers can say whether they do.
 | `terrain_setting` | Elevation and slope, with the DSM caveat attached |
 | `landscape_summary` | The AOI as a place, in plain language |
 | `flood_mapping_outlook` | Forward-looking: what a flood mask over this AOI will systematically get wrong |
+| `event_commentary` | Comments on every figure with respect to the flood event: at most three points each, none forced |
 | `findings` | Ranked, quantified, readable aloud |
 | `cannot_determine` | **Required.** What an analyst will reasonably ask that these inputs cannot answer |
 | `analyst_actions`, `data_integrity` | What to do, and what was wrong with the inputs |
@@ -348,6 +351,18 @@ audit the figures:
     "commission_risk_floor_km2": "<float>",
     "omission_risk_share": "<float 0-1>",
     "headline_for_analyst": "<one sentence on what a flood extent from this AOI will systematically get wrong>"
+  },
+
+  "event_commentary": {
+    "note": "Comments on EVERY figure the inputs yield, with respect to this flood event (user 2026-11-02). At most three points per figure, crisp; a figure with nothing to say for this event has an empty list -- never a forced point.",
+    "event": "<the event and window these comments are about, from the session header>",
+    "figures": [
+      {
+        "figure": "<rain_hyetograph|ndvi_class|bui|slope_class|elevation|water_class|worldcover_classes>",
+        "from": "<the payload the figure is drawn from>",
+        "points": ["<what the figure shows that matters for THIS flood, a number copied with its unit>"]
+      }
+    ]
   },
 
   "findings": [

@@ -19,16 +19,16 @@ output. Each run writes `NN_<slot>.md` and its facts sidecar
 
 | # | Module | Template | Filled from |
 |---|---|---|---|
-| 1 | Data availability | [[Module 1 - Data availability template]] | `core/module_blocks.py` |
-| 2 | Weather data | [[Module 2 - Weather data template]] | `core/module_blocks.py` (the document itself: `core/reports.py::weather_markdown`) |
-| 3 | Land use before the event | [[Module 3 - Land use before the event template]] | `core/module_blocks.py`, with the remote sensing expert's brief |
-| 4 | Terrain and slope classes | [[Module 4 - Terrain and slope classes template]] | `core/module_blocks.py` |
-| 5 | Permanent water and structures | [[Module 5 - Permanent water and structures template]] | `core/module_blocks.py` |
-| 6 | MCDM decision matrix | [[Module 6 - MCDM decision matrix template]] | `core/module_blocks.py` (`core/mcdm_report.py::decision_matrix_markdown`) |
-| 7 | MCDM ranking | [[Module 7 - MCDM ranking template]] | `core/module_blocks.py` (`core/mcdm_report.py::ranking_markdown`) |
-| 8 | Sensitivity analysis | [[Module 8 - Sensitivity analysis template]] | `core/module_blocks.py` (`core/mcdm_report.py::sensitivity_markdown`) |
-| 9 | Essential services (HEV) | [[Module 9 - Essential services template]] | `core/module_blocks.py`, with the flood analyst agent's flows |
-| 10 | Human health risks (HEV) | [[Module 10 - Human health risks template]] | `core/module_blocks.py`, with the flood analyst agent's flows |
+| 1 | Data availability | [[Module 1 - Data availability template]] -- Which flood products saw the area during the event. | `core/module_blocks.py` |
+| 2 | Weather data | [[Module 2 - Weather data template]] -- The rain, cloud and wind of the event. | `core/module_blocks.py` (the document itself: `core/reports.py::weather_markdown`) |
+| 3 | Land use before the event | [[Module 3 - Land use before the event template]] -- What covered the ground before the flood. | `core/module_blocks.py`, with the remote sensing expert's brief |
+| 4 | Terrain and slope classes | [[Module 4 - Terrain and slope classes template]] -- How high and how steep the ground is. | `core/module_blocks.py` |
+| 5 | Permanent water and structures | [[Module 5 - Permanent water and structures template]] -- The water normally there, so it is not mistaken for flood. | `core/module_blocks.py` |
+| 6 | MCDM decision matrix | [[Module 6 - MCDM decision matrix template]] -- Which flood product suits this event best. | `core/module_blocks.py` (`core/mcdm_report.py::decision_matrix_markdown`) |
+| 7 | MCDM ranking | [[Module 7 - MCDM ranking template]] -- Which flood product suits this event best. | `core/module_blocks.py` (`core/mcdm_report.py::ranking_markdown`) |
+| 8 | Sensitivity analysis | [[Module 8 - Sensitivity analysis template]] -- How firm that ranking is. | `core/module_blocks.py` (`core/mcdm_report.py::sensitivity_markdown`) |
+| 9 | Essential services (HEV) | [[Module 9 - Essential services template]] -- The flood's reach to hospitals, drinking water and food, the people affected, and what to do. | `core/module_blocks.py`, with the flood analyst agent's flows |
+| 10 | Human health risks (HEV) | [[Module 10 - Human health risks template]] -- Sewage, drinking water, mosquitoes and mould after the flood, and what to do. | `core/module_blocks.py`, with the flood analyst agent's flows |
 | 11 | Public Report (Flood bot) | [[Module 11 - Public report template]] | the report facts in `core/report_render.py`, plus agent-written slots |
 | 12 | Executive Summary (Chanakya) | [[Module 12 - Executive summary template]] | the report facts in `core/report_render.py`, plus agent-written slots |
 

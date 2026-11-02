@@ -13,6 +13,8 @@ status: draft
 tags: [template, output, module, flood-analyst]
 ---
 
+> **Sensitivity:** How firm that ranking is.
+
 ## What this is
 
 **This template is live.** `core/report_render.py` reads the fenced block
@@ -31,6 +33,7 @@ with its source.
 
 | Block | What it holds |
 |---|---|
+| `sensitivity_figure` | the weight-stability chart the tool drew (`core/charts.py`), one band per criterion |
 | `sensitivity_sweep` | the whole sweep document, `core/mcdm_report.py::sensitivity_markdown` -- described in [[Output 5 - Sensitivity analysis template]] |
 | `data_acquired` | when each payload the module shows was acquired, in the event's zone (user decision 2026-10-26) |
 | `how_sure` | the four-level uncertainty from those payloads' own blocks (D-34), then any caveats a block added |
@@ -38,6 +41,8 @@ with its source.
 ## Template
 
 ```markdown
+{{figure:sensitivity_figure}}
+
 {{fact:sensitivity_sweep}}
 
 ## When the data was acquired

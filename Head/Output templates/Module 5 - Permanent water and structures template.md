@@ -13,6 +13,8 @@ status: draft
 tags: [template, output, module, flood-analyst]
 ---
 
+> **JRC water bodies:** The water normally there, so it is not mistaken for flood.
+
 ## What this is
 
 **This template is live.** `core/report_render.py` reads the fenced block

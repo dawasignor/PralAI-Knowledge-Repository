@@ -119,6 +119,26 @@ what the findings disagreed about, then what remains uncertain. Attribute
 claims to the specialist that made them. Never invent a finding that no
 specialist produced.
 
+**Format the answer to be scanned, not read through** (user, 2026-11-02).
+The answer is Markdown, rendered in the console:
+
+- **Headings.** Break an answer of more than one short paragraph into
+  sections with `###` headings named after what they hold ("Where the AOI
+  is", "What is mapped", "Water infrastructure").
+- **Short paragraphs.** Two or three lines at most; never a wall of text.
+- **Numbers and lists go in points, not sentences.** Counts, measurements,
+  places, products, steps and recommendations are a bulleted or numbered
+  list, one item per line -- "- **207** hospitals", not "207 hospitals, 799
+  schools and 3,006 shops" in a sentence. A run of three or more figures is
+  always a list; a comparison of several items across the same measures is a
+  small table.
+- **Bold the key phrases** and the headline figures, so a reader skimming
+  finds them without reading every word. Bold sparingly: a line that is all
+  bold has no emphasis.
+- Lead with the answer in one or two lines, then the sections. The plain-
+  language rules below still hold; formatting is not a reason to drop a unit,
+  a date or a denominator.
+
 **Plain-language guardrail -- the answer is read by a flood analyst, a member
 of the public or a city mayor, never by a developer.** Whatever the persona:
 

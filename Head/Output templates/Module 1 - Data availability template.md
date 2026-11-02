@@ -28,6 +28,8 @@ tags:
   - flood-analyst
 ---
 
+> **Availability:** Which flood products saw the area during the event.
+
 ## What this is
 
 **This template is live.** `core/report_render.py` reads the fenced block

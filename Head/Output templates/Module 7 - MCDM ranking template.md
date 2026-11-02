@@ -13,6 +13,8 @@ status: draft
 tags: [template, output, module, flood-analyst]
 ---
 
+> **Ranking:** Which flood product suits this event best.
+
 ## What this is
 
 **This template is live.** `core/report_render.py` reads the fenced block

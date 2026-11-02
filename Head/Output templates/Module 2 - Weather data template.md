@@ -13,6 +13,8 @@ status: draft
 tags: [template, output, module, flood-analyst]
 ---
 
+> **Weather:** The rain, cloud and wind of the event.
+
 ## What this is
 
 **This template is live.** `core/report_render.py` reads the fenced block

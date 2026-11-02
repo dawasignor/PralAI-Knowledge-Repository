@@ -13,6 +13,8 @@ status: draft
 tags: [template, output, module, flood-analyst]
 ---
 
+> **Land cover:** What covered the ground before the flood.
+
 ## What this is
 
 **This template is live.** `core/report_render.py` reads the fenced block

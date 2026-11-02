@@ -185,6 +185,23 @@ inherits any error in them. Recompute it from the corrected figures.
 **Write numbers as plain JSON literals.** `1 .8` is not a number, and one broken
 literal makes the whole object unparseable rather than one field wrong.
 
+### Comment on every figure with respect to the event
+
+`event_commentary` comments on **every figure the inputs yield** -- the rain
+hyetograph (`weather_grid`, when fetched), the NDVI class map and the built-up
+index (`lulc`, or the WorldCover classes), the slope class map and elevation
+(`terrain`), the water class map (`permanent_water`) -- **with respect to this
+flood event**: the AOI, the window and the event in the session header.
+
+- At most three points per figure, crisp, each a specific observation about
+  this flood (rain on already-wet ground, a built-up share that limits
+  infiltration, flat low ground beside water, a seasonal-water belt a flood
+  map will confuse with flooding), with its number copied and its unit.
+- **Never force a point**: a figure with nothing to say for this event gets
+  an empty `points` list. A figure whose input is ABSENT is left out.
+- You do not see the images: comment through the data each figure is drawn
+  from, never on what you cannot read from it.
+
 ### The verdict
 
 `report_header.verdict` is one sentence an analyst can read **alone**, with no
