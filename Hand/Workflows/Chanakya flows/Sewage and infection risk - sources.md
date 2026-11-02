@@ -3,7 +3,7 @@ type: sources
 flow: sewage_infection_risk
 desc: Full references for every citation key used in the Sewage and infection risk knowledge note
 aliases: [sewage sources, sewage and infection risk references, sewage citations]
-keywords: [sources, references, citations, bibliography, WHO, UNEP, HydroWASTE, INFORM, CPCB, JMP, sewage, infection, wastewater]
+keywords: [sources, references, citations, bibliography, WHO, malaria, dengue, UNEP, HydroWASTE, INFORM, CPCB, JMP, sewage, infection, wastewater]
 agent: citadel
 knowledge_note: Sewage and infection risk
 context: hand
@@ -102,6 +102,33 @@ World Health Organization. *Sanitation* fact sheet.
 - **Verification** read
 - **Used for** untreated-wastewater share; WASH mortality; sanitation access
   figures; the disease list; the USD 5.50 per USD 1 return
+
+### (WHO 2025a)
+
+World Health Organization. *Malaria* fact sheet.
+<https://www.who.int/news-room/fact-sheets/detail/malaria>
+
+- **Vintage** fact sheet dated 4 December 2025
+- **Verification** read 2026-11-02 (the page itself)
+- **Used for** prevention by avoiding bites and with medicines; insecticide-
+  treated nets and indoor residual spraying as the two core vector-control
+  interventions; parasite-based diagnostic confirmation; early diagnosis and
+  treatment. **The page says nothing about floods.**
+
+### (WHO 2025b)
+
+World Health Organization. *Dengue and severe dengue* fact sheet.
+<https://www.who.int/news-room/fact-sheets/detail/dengue-and-severe-dengue>
+
+- **Vintage** fact sheet dated 21 August 2025
+- **Verification** read 2026-11-02 (the page itself)
+- **Used for** *Aedes aegypti* as the main vector; prevention relying on vector
+  control; removing artificial habitats that hold water; covering, emptying and
+  cleaning domestic water storage containers weekly; routine vector
+  surveillance. **The page says nothing about floods.**
+- **Open** the post-flood timing of malaria and dengue is not sourced: the
+  vector-borne section of (WHO 2005) could not be retrieved on 2026-11-02
+  (iris.who.int refused the request). Read it from the PDF before citing any lag.
 
 ### (UNEP 2023)
 
