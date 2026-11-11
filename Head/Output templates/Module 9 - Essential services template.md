@@ -42,8 +42,13 @@ the facts and is never rendered.
 | `hev_exposure_essential_services` | each facility type: located, in the flood, outside it, not observed, by name |
 | `hev_food_clusters` | food outlets and their clusters, and how many are in the flood |
 | `hev_people` | WorldPop: the people in the AOI, and the population affected -- inside the mapped flood extent |
-| `hev_inform` | INFORM risk, hazard and exposure, vulnerability, lack of coping capacity (national, with the release) |
-| `hev_previous_floods` | floods and storms recorded before the event (GDACS, Copernicus EMS, UNOSAT, World Bank) |
+| `hev_income_group` | one phrase: the country's World Bank income group (current classification) |
+| `hev_inform_meters` | figure: four national meters out of 10 -- INFORM risk, vulnerability, lack of coping capacity, climate change risk 2050 -- with "higher is worse" at its foot |
+| `hev_inform` | the meters' numbers in one line, with the release (the text view, and what Chanakya reads) |
+| `hev_inform_trend` | figure: one line chart, year by year, of vulnerability, lack of coping capacity and natural hazard (all natural hazards), from INFORM's latest back-calculated series |
+| `hev_inform_trend_line` | the trend's first and last year in one line |
+| `hev_previous_floods` | one line: how many floods and storms were recorded before the event, and the latest (GDACS, Copernicus EMS, UNOSAT, World Bank) |
+| `previous_disasters_timeline` | figure: those events on a time line, one bar each |
 | `hazard_reading` (agent) | Chanakya: what the flood numbers mean and how severe -- 2-3 lines for Flood bot |
 | `vulnerability_points` (agent) | Chanakya: two points interpreting INFORM and the earlier floods |
 | `overall_risks` (agent) | Chanakya: the most important risks to essential services, numbered |
@@ -72,9 +77,19 @@ the facts and is never rendered.
 
 ## 3. Vulnerability
 
+{{fact:hev_income_group}}
+
+{{figure:hev_inform_meters}}
+
 {{fact:hev_inform}}
 
+{{figure:hev_inform_trend}}
+
+{{fact:hev_inform_trend_line}}
+
 {{fact:hev_previous_floods}}
+
+{{figure:previous_disasters_timeline}}
 
 {{llm:vulnerability_points|max_words=90|flood_bot=50}}
 
@@ -108,7 +123,9 @@ this AOI.
 - `vulnerability_points`: exactly two points. INFORM is NATIONAL and sets the
   regime, never a property of the AOI; Vulnerability and Lack of Coping
   Capacity are separate claims -- report both (INFORM). Say whether floods
-  recur here from the earlier events listed. A score is not an explanation.
+  recur here from the count and the latest event given. The trend line says
+  whether vulnerability and coping have improved; the climate change meter is
+  a 2050 projection, never today's risk. A score is not an explanation.
 - `overall_risks`: numbered, most serious first, each tied to a fact above.
 - `actions`: most urgent first, each tied to the risk it answers.
 
