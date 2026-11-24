@@ -4,12 +4,12 @@ desc: The live template of Module 9, Essential services -- the layout the render
 aliases: [module 9 template, essential_services_hev template]
 keywords: [module 9, essential services, HEV, hazard, exposure, vulnerability, risk, recommended actions, hospitals, drinking water, food, INFORM, WorldPop, template, chanakya, blocks]
 agent: argos
-sources_note: Sewage and infection risk - sources
+sources_note: Human health risk - sources
 context: head
 retrieval: Answer what Module 9 contains, section by section, which block fills each part, and which text is fixed.
 source_of_truth: this note -- core/report_render.py reads the fenced block below at render time; core/module_blocks.py builds each block
 output_file: experiments/<slug>/09_essential_services_hev.md (+ 09_essential_services_hev.facts.json)
-validation_status: rewritten 2026-11-02 to the five-section HEV layout (hazard, exposure, vulnerability, overall risk, recommended actions); not yet run live
+validation_status: rewritten 2026-11-02 to the five-section HEV layout (hazard, exposure, vulnerability, overall risk, recommended actions); roads and bridges and the interpret-never-repeat rule added 2026-11-22, not yet run live
 status: draft
 tags: [template, output, module, flood-analyst]
 ---
@@ -41,7 +41,9 @@ the facts and is never rendered.
 | `hazard_flood` | the best-ranked product's flood: km2 flooded of the observed land, or no flood mapped |
 | `hev_exposure_essential_services` | each facility type: located, in the flood, outside it, not observed, by name |
 | `hev_food_clusters` | food outlets and their clusters, and how many are in the flood |
+| `hev_roads_bridges` | the main roads (motorway to secondary) in the flood or on unobserved ground, by name or ref; the bridges in the flood; hospitals with a flooded road within 250 m (assumed) -- `assess_road_access`, run for this module only (it stays switched off elsewhere, user decision 2026-11-22); no depth, so no passability |
 | `hev_people` | WorldPop: the people in the AOI, and the population affected -- inside the mapped flood extent |
+| `hev_population_map` | figure: WorldPop people per pixel (log scale), the flood extent in red, land the product did not observe hatched -- `get_pop_data` |
 | `hev_income_group` | one phrase: the country's World Bank income group (current classification) |
 | `hev_inform_meters` | figure: four national meters out of 10 -- INFORM risk, vulnerability, lack of coping capacity, climate change risk 2050 -- with "higher is worse" at its foot |
 | `hev_inform` | the meters' numbers in one line, with the release (the text view, and what Chanakya reads) |
@@ -69,11 +71,15 @@ the facts and is never rendered.
 
 {{fact:hev_food_clusters}}
 
+{{fact:hev_roads_bridges}}
+
 {{llm:hazard_reading|max_words=110|flood_bot=50}}
 
 ## 2. Exposure
 
 {{fact:hev_people}}
+
+{{figure:hev_population_map}}
 
 ## 3. Vulnerability
 
@@ -113,9 +119,25 @@ the facts and is never rendered.
 ## Hints for Chanakya
 
 Sourced evidence for the risks and actions of this module. Cite in the short
-form given; the full references are in [[Sewage and infection risk - sources]].
+form given; the full references are in [[Human health risk - sources]].
 Use a hint only where the facts support it -- a hint is not a finding about
 this AOI.
+
+**Interpret, never repeat** (user rule 2026-11-22). The module already shows
+every number in its map, tables and figures. The written parts say what those
+numbers mean and what follows from them, in words -- "most hospitals lie on
+ground the satellite did not see", never "13 of 14 hospitals". A number from
+these hints (a chlorine residual) may be given with its source. One short line
+per point; no part restates another. A part over its word limit is sent back
+once to be shortened; if still over it is shown whole and flagged, never cut.
+
+**Connectivity and network disruption.** Where a main road or a bridge is in
+the flood or on ground not observed (`hev_roads_bridges`), name it and say what
+losing it means: which places, services or routes it cuts off, and whether
+hospitals, drinking water and markets can still be reached. A flooded main
+road or bridge is a risk in `overall_risks` and needs an action in `actions`.
+A bridge in the flood extent is not known to be closed -- its deck height is
+not known; a road on unobserved ground is not known to be open.
 
 **Write each part like this.**
 - `hazard_reading`: what the flooded share and the facilities inside the flood
@@ -159,4 +181,4 @@ population's living conditions -- crowding, water, sanitation, access to care
 -- more than by the floodwater itself; do not open from "a flood means an
 epidemic" (WHO 2006; WHO 2005).
 
-Related: [[Output templates - MOC]] | [[Module 8 - Sensitivity analysis template]] | [[Module 10 - Human health risks template]] | [[Sewage and infection risk]]
+Related: [[Output templates - MOC]] | [[Module 8 - Sensitivity analysis template]] | [[Module 10 - Human health risks template]] | [[Human health risk]]

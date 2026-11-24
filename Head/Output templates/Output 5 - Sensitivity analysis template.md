@@ -50,14 +50,14 @@ inputs_used: [mcdm, sensitivity]
 | Rank | Alternative | Closeness Ci | Gap to the rank below |   <- baseline.ranking
 
 ## The smallest weight change that changes the order
-| Criterion | Name | Weight | Changes at | Delta | Relative | First swap | Base weight needed | Reachable |   <- criteria[].nearest_change, reachable
-(fixed text: what "base weight needed" means)
+| Criterion | Name | Weight | Changes at | Delta | Relative | First swap | Weight to state |   <- criteria[].nearest_change (since 2026-11-22)
+(fixed text: what "weight to state" means -- the number to give the ranking, the others kept as Module 7 used them)
 **The most critical criterion is `{{most_critical.criterion}}` ...**   <- most_critical, most_critical_reachable
 ONE of: **No weight anywhere in [0, 1] changes the order for ...** (stable_criteria)
       / **Every criterion can change the order somewhere in [0, 1].**
 
 ## When the top-ranked product changes
-| Criterion | Weight | Leader changes at | Delta | New leader | Base weight needed |   <- criteria[].nearest_leader_change
+| Criterion | Weight | Leader changes at | Delta | New leader | Weight to state |   <- criteria[].nearest_leader_change
 **{{len(leader_changeable_by)}} of {{N}} criteria can displace {{baseline.leader}}**: {{leader_changeable_by}}
 or **No single criterion can displace {{baseline.leader}}** at any weight.
 

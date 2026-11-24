@@ -1,7 +1,7 @@
 ---
 type: knowledge
 desc: Why the NDVI classes are named for greenness rather than land cover, and the phenological method chosen to fix it
-aliases: [greenness bins, NDVI classes, NDVI thresholds, dense_vegetation, land cover from NDVI, why not forest]
+aliases: [greenness bins, NDVI classes, NDVI thresholds, very_high_greenness, dense_vegetation, Aryal thresholds, land cover from NDVI, why not forest]
 keywords: [NDVI, bins, classes, greenness, land cover, forest, shrub, cropland, phenology, amplitude, TIMESAT, time series, provisional]
 agent: norwood
 sensor: Sentinel-2 MSI L2A
@@ -19,11 +19,17 @@ tags: [classification, vegetation, sentinel-2, provisional]
 
 | NDVI | Code | Label |
 |---|---|---|
-| below 0.0 | 1 | `water_or_wet` |
-| 0.0 - 0.15 | 2 | `bare_or_built` |
-| 0.15 - 0.35 | 3 | `sparse_vegetation` |
-| 0.35 - 0.60 | 4 | `moderate_vegetation` |
-| 0.60 and above | 5 | `dense_vegetation` |
+| below 0.19 | 1 | `non_vegetation` |
+| 0.19 - 0.40 | 2 | `low_greenness` |
+| 0.40 - 0.50 | 3 | `moderate_greenness` |
+| 0.50 - 0.60 | 4 | `high_greenness` |
+| 0.60 and above | 5 | `very_high_greenness` |
+
+The breaks are Aryal et al.'s (2022) Level-3 Sentinel-2 thresholds -- 0.19
+non-vegetation / vegetation, 0.50 shrub / trees, 0.40 and 0.60 stressed /
+healthy -- named here by greenness rather than shrub / trees, for the reason
+below. Results stored before 2026-11-19 used other breaks (0 / 0.15 / 0.35 /
+0.60) and call the top class `dense_vegetation`; its 0.60 break is the same.
 
 The response carries a `caveat` string beside the fractions, so the qualifier
 travels with the number rather than living in prose someone has to remember.
@@ -33,7 +39,7 @@ travels with the number rather than living in prose someone has to remember.
 **[[NDVI]] measures green biomass, and greenness is not cover type.**
 Peak-season paddy and closed-canopy forest both sit near 0.8 on a single date.
 Calling bin 5 `forest` would assert a distinction the measurement cannot make,
-so it is called `dense_vegetation` -- which is what was actually measured.
+so it is called `very_high_greenness` (`dense_vegetation` in older results) -- which is what was actually measured.
 
 ## What separates the classes: time, not thresholds
 

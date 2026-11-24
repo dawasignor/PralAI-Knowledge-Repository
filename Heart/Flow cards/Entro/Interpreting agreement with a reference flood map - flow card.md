@@ -41,7 +41,10 @@ map, not yet field validated.
 
 **Write, in this order:**
 
-1. **The table**, as Monty produced it, unchanged. Then the note line under it.
+1. **The table is written under your answer by the system** -- every product,
+   every metric: coverage, overall accuracy, precision, recall, F1, IoU, MCC,
+   the reference flood share, metric rank and TOPSIS rank. Do not retype it
+   or a shortened copy; refer to its columns. Then the note line.
 2. **What can be compared at all.** Which products were evaluated, which were
    not and why (`status`, `note`). A ranking over one product is not a ranking.
 3. **Per evaluated product**, three short lines:

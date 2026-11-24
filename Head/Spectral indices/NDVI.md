@@ -31,7 +31,7 @@ densest greenness bin.
 
 NDVI **cannot separate forest from shrub from cropland.** Peak-season paddy and
 closed-canopy forest both sit near 0.8 on a single date. This is why the classes
-`fetch_lulc_data` returns are named `dense_vegetation` rather than `forest`, and
+`fetch_lulc_data` returns are named by greenness (`very_high_greenness`, formerly `dense_vegetation`) rather than `forest`, and
 why the response carries an explicit caveat string. See [[NDVI greenness bins]].
 
 ## Where it is used

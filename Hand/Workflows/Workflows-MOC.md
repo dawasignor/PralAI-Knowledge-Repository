@@ -43,6 +43,7 @@ and when it is the wrong one: [[Monty data workflows]].
 | `get_flood_map` | Flood map and overlay | Maps the flood from the best-ranked product over the area and window, with how much of the land it observed. |
 | `get_pop_data` | Population | Counts the people in the area, and inside the mapped flood, from WorldPop. |
 | `map_hazard_exposure` | Hazard and exposure map | Draws the flood with the hospitals, drinking-water facilities and food outlets it reaches. |
+| `mcdm_decision_matrix` | MCDM decision matrix | Shows each flood product's scores and how much each criterion counts for this event, before any ranking. |
 | `rank_flood_products` | NRT flood product ranking | Ranks the five flood products by how well each suits this event's cloud, wind, vegetation, slope and built-up conditions. |
 | `search_previous_disasters` | Previous disasters (before the event) | Lists the floods and storms recorded in the country before the event, from international registers. |
 | `sensitivity_analysis` | MCDM weight sensitivity | Tests how far each criterion's weight can move before the product ranking changes. |
@@ -61,7 +62,8 @@ Every thesis workflow except Modules 9 and 10.
 | Terrain | Module 4 | How high and how steep the ground is. |
 | JRC water bodies | Module 5 | The water normally there, so it is not mistaken for flood. |
 | AOI brief | Module 3 | The area before the flood, and how a flood map over it will behave. |
-| Ranking | Modules 6-7 | Which flood product suits this event best. |
+| Scores and weights | Module 6 | Each flood product's scores, and how much each criterion counts here. |
+| Ranking | Module 7 | Which flood product suits this event best. |
 | Sensitivity | Module 8 | How firm that ranking is. |
 | Accuracy | -- | How the flood products agree with a reference flood map. |
 

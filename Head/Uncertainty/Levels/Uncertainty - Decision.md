@@ -28,6 +28,9 @@ sweep steps in `run.steps`.
 
 ## Decision items in this repo
 
+- **Event-first weights** (2026-11-22): each event criterion is 1/12 raised by
+  its index, the rest shared equally by the product criteria -- an author rule,
+  not an elicited weighting.
 - **Equal base weights** are a placeholder, not an elicited weighting
   ([[Sensitivity Analysis]]).
 - **The cloud gate** sits at 100% and cannot fire: high cloud penalises an

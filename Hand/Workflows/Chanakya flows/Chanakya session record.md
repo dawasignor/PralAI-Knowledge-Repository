@@ -31,7 +31,7 @@ produces an answer that reads exactly like a correct one.
 | Event and window | Flood in India (flood, Orange), 2021-11-14 to 2021-11-18 | Disaster register (input 22) |
 | Demographics | population, density, with source and vintage | Not yet wired -- input 9 |
 | Run settings | persona, verified-sources-only | The console, each turn |
-| Analyses run | `citadel:sewage_infection_risk` | The graph |
+| Analyses run | `citadel:human_health_risk` | The graph |
 | Digest | two or three sentences on what the session has established | Argos, rewritten each turn |
 
 **A vintage travels with every figure.** A 2011 census population used in 2026

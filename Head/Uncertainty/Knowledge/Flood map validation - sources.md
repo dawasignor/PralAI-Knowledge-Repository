@@ -3,7 +3,7 @@ type: sources
 flow: accuracy_interpretation
 desc: Full references for every citation key used in the flood map validation notes
 aliases: [validation sources, agreement metric references, accuracy metric citations]
-keywords: [sources, references, citations, MCC, Matthews, Jaccard, F1, Van Rijsbergen, Chicco, Congalton, Bates, De Roo, UNOSAT, HDX, JRC]
+keywords: [sources, references, citations, MCC, Matthews, Jaccard, F1, Van Rijsbergen, Chicco, Congalton, Bates, De Roo, UNOSAT, HDX, JRC, Copernicus EMS, EMSR851]
 agent: entro
 knowledge_note: Agreement metrics for binary flood maps
 context: head
@@ -67,6 +67,18 @@ UNITAR-UNOSAT (2025). *Flood extent, Sri Lanka, Cyclone Ditwah, 26 November -
 2 December 2025*, event code FL20251128LKA, shapefile delivery via the
 Humanitarian Data Exchange. CC BY-SA: credit UNOSAT. Layers and attributes
 **read** from the delivered zip, 2026-10-11.
+
+### (Copernicus EMS 2025)
+
+Copernicus Emergency Management Service (2025). *Rapid Mapping activation
+EMSR851*, Sri Lanka: AOI02 "Kelani Ganga River" delineation product v1
+(post-event PlanetScope 3.9 m, 30 November 2025); AOI09 "Gampola" grading product v1 (post-event GeoEye
+0.5 m, 4 December 2025) and AOI03 "Mahaveli Ganga River" delineation,
+monitoring 1, v1 (post-event Legion 1.6 m, 3 December 2025); shapefile
+deliveries, metadata dated 2025-12-04. Copyright notice by link:
+<http://emergency.copernicus.eu/mapping/ems/cite-copernicus-ems-mapping-portal>.
+Layers, attributes and source tables **read** from the delivered zips,
+2026-11-18; the copyright page **not yet read**.
 
 ### (Olofsson et al. 2014)
 

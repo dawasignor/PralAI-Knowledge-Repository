@@ -68,6 +68,8 @@ Taken with the user on 2026-10-11:
 Measured 2026-10-11 over the kelani-2025-west domain (1,311.7 km2, of which
 61.0 km2 is reference flood):
 
+(A run from before 2026-11-22. Every comparison since reports every metric, overall accuracy and the reference flood share included.)
+
 | Product | Coverage | Precision | Recall | F1 | IoU | MCC | Metric rank | TOPSIS rank |
 |---|---|---|---|---|---|---|---|---|
 | GFM (Sentinel-1) | 0.121 | 0.962 | 0.307 | 0.465 | 0.303 | 0.504 | 1 | 1 |

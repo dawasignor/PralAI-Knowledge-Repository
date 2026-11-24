@@ -21,12 +21,12 @@ A flow card is the procedure an agent follows for one analysis. Only its `## Flo
 - [[Cultural heritage and home flooding risk - flow card]]
 - [[Drinking water scarcity - flow card]]
 - [[Electric shock hazard - flow card]]
-- [[Food aid and relief estimation - flow card]]
+- [[Essential services - flow card]]
 - [[Power outage and disruption risk - flow card]]
 - [[Primary cooking fuel disruption - flow card]]
 - [[River and ocean hazard - flow card]]
 - [[Rockfall, treefall and landslide risk - flow card]]
-- [[Sewage and infection risk - flow card]]
+- [[Human health risk - flow card]]
 
 ## Norwood
 

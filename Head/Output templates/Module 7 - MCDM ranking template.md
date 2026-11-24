@@ -33,13 +33,28 @@ with its source.
 
 | Block | What it holds |
 |---|---|
-| `mcdm_ranking` | the whole ranking document, `core/mcdm_report.py::ranking_markdown` -- described in [[Output 4 - MCDM ranking template]] |
+| (fixed text) | a short introduction to TOPSIS in this thesis, the ideal and anti-ideal, and closeness (user, 2026-11-19) |
+| `mcdm_closeness_figure` | figure: the closeness meter -- each product's arrow between the anti-ideal (0) and the ideal (1); drawn by `rank_flood_products` |
+| `mcdm_ranking` | the whole ranking document, including the weights the user changed, if any, `core/mcdm_report.py::ranking_markdown` -- described in [[Output 4 - MCDM ranking template]] |
 | `data_acquired` | when each payload the module shows was acquired, in the event's zone (user decision 2026-10-26) |
 | `how_sure` | the four-level uncertainty from those payloads' own blocks (D-34), then any caveats a block added |
 
 ## Template
 
 ```markdown
+## What TOPSIS does here
+
+TOPSIS (Hwang and Yoon 1981) ranks a set of options by how close each one comes to the best possible combination of criteria. In this thesis it answers one question: which of the five near-real-time flood products suits this flood event best, given the scores and weights of Module 6.
+
+1. Each criterion's scores are put on one common scale (each column divided by its length, "vector normalisation") and multiplied by the criterion's weight.
+2. **The ideal** is an imaginary product holding the best value of every criterion among the five -- the finest resolution, the shortest revisit, the least hurt by cloud, and so on. **The anti-ideal** holds the worst value of every criterion. Neither is a real product.
+3. For each product, TOPSIS measures how far it lies from the ideal and how far from the anti-ideal.
+4. **Closeness** = distance from the anti-ideal / (distance from the anti-ideal + distance to the ideal). It runs from 0 (the product is the anti-ideal) to 1 (the product is the ideal). The product with the highest closeness ranks first.
+
+The ideal and the anti-ideal are built from these five products only, so a closeness is relative: it says how a product compares with the others here, not how good it is in absolute terms.
+
+{{figure:mcdm_closeness_figure}}
+
 {{fact:mcdm_ranking}}
 
 ## When the data was acquired

@@ -42,7 +42,7 @@ assumed.
 
 | # | Source | Candidate provider | Wanted by |
 |---|---|---|---|
-| 7 | Wastewater treatment plants and outfalls | HydroWASTE | [[Sewage and infection risk]] |
+| 7 | Wastewater treatment plants and outfalls | HydroWASTE | [[Human health risk]] |
 | 8 | INFORM Risk, vulnerability and climate-change vulnerability, by country and year | INFORM / JRC | Every flow, for the vulnerability step |
 | 9 | Population density and distribution | TOTAG | Every exposure step |
 | 10 | Building footprints and building use | TOTAG | Exposure; [[Cultural heritage and home flooding risk]] |

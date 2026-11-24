@@ -81,7 +81,7 @@ attached to results; this note mirrors it for retrieval.
 
 ## data_availability - NRT product availability
 
-- **Data source (EODC STAC (GFM); NASA CMR-STAC (OPERA, LANCE); Open-Meteo (cloud)).** The catalogues list what was published, not what was usable. MODIS and VIIRS NRT keep only about a week, so older days are not checkable, and their cloud at overpass is modelled (IFS).
+- **Data source (EODC STAC (GFM); NASA CMR-STAC (OPERA, LANCE); NASA GIBS (MODIS, VIIRS older days); Open-Meteo (cloud)).** The catalogues list what was published, not what was usable. MODIS and VIIRS NRT keep only about a week; older days come from the GIBS daily composite, which merges a day's passes (one per day, not a pass count), and their cloud at overpass is modelled (IFS).
 - **Method.** Files within a few minutes of each other count as one pass, and days are local to the AOI from a timezone lookup with a solar-offset fallback; a wrong grouping or offset can move a pass to the wrong day.
 
 ## rank_flood_products - NRT flood product ranking
@@ -92,7 +92,7 @@ attached to results; this note mirrors it for retrieval.
 - **Reduce:** settle the contested scores and P2 with a second coder; source the author rules.
 
 **Method.**
-- **What:** TOPSIS only, with no weighted-sum check or Spearman comparison; the equal 1/12 weights are a placeholder, and with the cloud gate off a rank is not a usability claim.
+- **What:** TOPSIS only, with no weighted-sum check or Spearman comparison; the weights are an author rule (event criteria first: 1/12 raised by each index, the rest shared by the product criteria) on equal 1/12 placeholders, and with the cloud gate off a rank is not a usability claim.
 - **Affects:** the order can depend on the weighting more than on the evidence.
 - **Reduce:** decide AHP or entropy weights, add the weighted-sum check, and read the rank with sensitivity_analysis and the cloud value beside it.
 

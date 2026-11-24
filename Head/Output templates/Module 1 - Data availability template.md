@@ -51,9 +51,8 @@ with its source.
 | `availability_window_check` | a warning, only when the stored check was fetched for another window |
 | `availability_clock_change` | a note, only when the local clock changed in the window |
 | `availability_searched` | the window searched, its zone, when it was retrieved, what an instance is |
-| `availability_table` | passes per product per local day |
-| `availability_not_checkable` | the overpass cloud on days a rolling archive no longer holds; only when there are such days |
-| `availability_figure` | the availability chart's name and caption |
+| `availability_not_checkable` | the overpass cloud on days no archive holds (no data); only when there are such days |
+| `availability_figure` | figure: the availability chart -- passes per product per day with the overpass cloud (user, 2026-11-19: the chart, not the per-day count table) |
 | `data_acquired` | when each payload the module shows was acquired, in the event's zone (user decision 2026-10-26) |
 | `how_sure` | the four-level uncertainty from those payloads' own blocks (D-34), then any caveats a block added |
 
@@ -66,13 +65,9 @@ with its source.
 
 {{fact:availability_searched}}
 
-{{fact:availability_table}}
-
-Cells: passes that day; 0 searched and none found; G the NRT files are gone but the day's composite is held as imagery in the NASA GIBS archive (re-gridded; the flood map reads it there); n/c no archive holds the day; ? the catalogue search failed.
-
 {{fact:availability_not_checkable}}
 
-{{fact:availability_figure}}
+{{figure:availability_figure}}
 
 ## When the data was acquired
 

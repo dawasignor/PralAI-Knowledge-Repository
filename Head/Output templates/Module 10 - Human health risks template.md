@@ -4,7 +4,7 @@ desc: The live template of Module 10, Human health risks -- the layout the rende
 aliases: [module 10 template, human_health_risks_hev template]
 keywords: [module 10, human health, HEV, hazard, exposure, vulnerability, risk, recommended actions, sewage, drinking water, mosquitoes, malaria, dengue, mould, hospitals, WHO, template, chanakya, blocks]
 agent: argos
-sources_note: Sewage and infection risk - sources
+sources_note: Human health risk - sources
 context: head
 retrieval: Answer what Module 10 contains, section by section, which block fills each part, and which text is fixed.
 source_of_truth: this note -- core/report_render.py reads the fenced block below at render time; core/module_blocks.py builds each block
@@ -42,6 +42,7 @@ the facts and is never rendered.
 | `hev_exposure_health` | hospitals and general clinics: located, in the flood, outside it, not observed, by name |
 | `climate_zone_statement` | the experiment's climate zone and its basis, when one is set |
 | `hev_people` | WorldPop: the people in the AOI, and the population affected -- inside the mapped flood extent |
+| `hev_population_map` | figure: WorldPop people per pixel (log scale), the flood extent in red, land the product did not observe hatched -- `get_pop_data` |
 | `hev_income_group` | one phrase: the country's World Bank income group (current classification) |
 | `hev_inform_meters` | figure: four national meters out of 10 -- INFORM risk, vulnerability, lack of coping capacity, climate change risk 2050 -- with "higher is worse" at its foot |
 | `hev_inform` | the meters' numbers in one line, with the release (the text view, and what Chanakya reads) |
@@ -74,6 +75,8 @@ the facts and is never rendered.
 ## 2. Exposure
 
 {{fact:hev_people}}
+
+{{figure:hev_population_map}}
 
 ## 3. Vulnerability
 
@@ -112,84 +115,51 @@ the facts and is never rendered.
 
 ## Hints for Chanakya
 
-Sourced evidence for the four health risks of this module. Cite in the short
-form given; the full references are in [[Sewage and infection risk - sources]].
-Use a hint only where the facts support it -- a hint is not a finding about
-this AOI.
+Sourced evidence for the four risks. Cite in the short form; full references
+are in [[Human health risk - sources]], and the conditions behind each claim
+are in [[Human health risk]]. A hint is not a finding about this AOI.
 
-**Write each part like this.**
+**Each part.**
 - `hazard_reading`: what the flooded share, the people in it and the
-  hospitals inside the flood mean for health, and how severe; say how much of
-  the land was observed.
-- `vulnerability_points`: exactly two points. INFORM is NATIONAL and sets the
-  regime, never a property of the AOI; Vulnerability and Lack of Coping
-  Capacity are separate claims -- report both (INFORM). Say whether floods
-  recur here from the count and the latest event given. The trend line says
-  whether vulnerability and coping have improved; the climate change meter is
-  a 2050 projection, never today's risk.
-- `overall_risks`: the four risks below, numbered, ordered by how serious each
-  is HERE from the facts -- and say plainly where the facts cannot rank one.
-- `actions`: most urgent first, each tied to the risk it answers, with its
-  short citation.
+  hospitals inside it mean for health, and how severe; say how much land was
+  observed.
+- `vulnerability_points`: exactly two. INFORM is national, and Vulnerability
+  and Lack of Coping Capacity are separate claims (INFORM). Say whether floods
+  recur here and which way the trend runs. The climate meter is 2050, not
+  today.
+- `overall_risks`: the four below, ordered by how serious each is here; say
+  where the facts cannot rank one.
+- `actions`: most urgent first, each tied to its risk and cited.
 
-**Start here.** Outbreak risk after a flood is lower than often perceived and
-is driven by the displaced population's living conditions -- crowding, water,
-sanitation, access to care -- more than by the floodwater itself (WHO 2006). Of
-14 major floods worldwide between 1970 and 1994, one produced a major
-diarrhoeal outbreak (WHO 2005). Overstating the risk is a failure, not a safe
-default.
+**Start here.** Outbreak risk is lower than often perceived and driven by
+displacement (WHO 2006). A relative risk, RR, is a rise, not a rate.
 
-**1. Sewage and infection** (overflowing drains, submerged houses).
-- Leptospirosis is the only epidemic-prone infection transmitted directly
-  from contaminated floodwater -- through skin contact with water carrying
-  rodent urine (WHO 2005).
-- Wound infections, dermatitis, conjunctivitis and ear, nose and throat
-  infections follow direct contact; real, but not epidemic prone (WHO 2005).
-- A flooded treatment plant is a hazard, not an outcome: report the pathway,
-  never assert the illness (WHO 2005).
-- Act: avoid skin contact with floodwater; wash and cover wounds (WHO 2006).
-  Risk-based sanitation management, Sanitation Safety Planning (WHO 2018).
+**1. Sewage and infection.** Leptospirosis spreads through skin contact with
+floodwater (WHO 2005), but its post-flood effect was inconsistent from year to
+year (Yang et al. 2024). Skin and eye disease rose from one week to three
+months after floods (Yang et al. 2024). Act: avoid contact with floodwater;
+wash and cover wounds (WHO 2006).
 
-**2. Contaminated drinking water and infection.**
-- Contaminated drinking water is the major risk factor for flood-associated
-  outbreaks: cholera, typhoid, hepatitis A and E, diarrhoeal disease
-  (WHO 2005).
-- Hepatitis E outbreaks often follow heavy rain and floods; usually mild
-  except in pregnant women, with case fatality up to 25% (WHO 2006).
-- Children under five: diarrhoeal disease and acute respiratory infection
-  (WHO 2006).
-- Act: uninterrupted safe drinking water is the single most important
-  preventive measure (WHO 2005; WHO 2006). Boil or chlorinate -- a residual of
-  0.2-0.5 mg/l free chlorine at 30 minutes (WHO 2005). Surveillance and early
-  warning; oral rehydration salts stocked (WHO 2006). Mass tetanus campaigns
-  are not indicated after floods; clean water and sanitation are the practical
-  strategy (WHO 2005).
+**2. Contaminated drinking water.** The major risk factor for flood outbreaks
+(WHO 2005). Diarrhoea (RR 1.11) and dysentery (RR 1.38) rose within six
+months of floods, gastrointestinal illness peaking days after
+(Yang et al. 2024). Hepatitis E is severe in pregnancy (WHO 2006). Act:
+uninterrupted safe water comes first (WHO 2005; WHO 2006); boil or chlorinate
+to 0.2-0.5 mg/l free chlorine at 30 minutes (WHO 2005); stock oral
+rehydration salts (WHO 2006).
 
-**3. Mosquitoes, malaria and dengue.**
-- Malaria can be prevented by avoiding mosquito bites and with medicines; the
-  two core vector-control interventions are insecticide-treated nets and
-  indoor residual spraying (WHO 2025a).
-- Early diagnosis and treatment reduces disease, prevents deaths and reduces
-  transmission; suspected cases are confirmed by a parasite-based diagnostic
-  test (WHO 2025a).
-- Dengue is carried mainly by the *Aedes aegypti* mosquito; prevention and
-  control rely on vector control (WHO 2025b).
-- Act: remove artificial habitats that hold water; cover, empty and clean
-  domestic water storage containers weekly; nets if sleeping in the day;
-  routine vector surveillance and control (WHO 2025b).
-- **Gap:** no WHO document read so far states how soon after a flood malaria
-  or dengue rises, or whether it does in this region. Give no lag in weeks and
-  no outbreak forecast; say the climate zone where one is set.
+**3. Mosquitoes, malaria and dengue.** Malaria rose after floods in Sudan,
+China and Uganda, from weeks to a year after (Yang et al. 2024). No source
+held links floods to dengue. Give no lag and no forecast for this AOI. Act:
+nets and indoor spraying (WHO 2025a); empty, cover and clean water containers
+weekly (WHO 2025b).
 
-**4. Mould and respiratory illness.**
-- Buildings, wooden ones and basements especially, hold moisture after the
-  water leaves; occupants of damp or mouldy buildings have up to a 75% greater
-  risk of respiratory symptoms and asthma (WHO 2009).
-- Act: dry buildings before mould establishes; preventing persistent dampness
-  is the single most effective measure (WHO 2009).
+**4. Mould and respiratory illness.** Respiratory disease rose after floods
+in five studies (Yang et al. 2024). Damp, mouldy buildings carry up to 75%
+more respiratory symptoms and asthma (WHO 2009). Act: dry buildings before
+mould establishes (WHO 2009).
 
-**Hospitals.** Power cuts degrade health facilities, including the vaccine
-cold chain (WHO 2005). A hospital inside the flood is a service lost exactly
-when these risks peak.
+**Hospitals.** Demand for care rises while access falls (Yang et al. 2024).
+Power cuts degrade facilities and the vaccine cold chain (WHO 2005).
 
-Related: [[Output templates - MOC]] | [[Module 9 - Essential services template]] | [[Module 11 - Public report template]] | [[Sewage and infection risk]]
+Related: [[Output templates - MOC]] | [[Module 9 - Essential services template]] | [[Module 11 - Public report template]] | [[Human health risk]]

@@ -60,6 +60,7 @@ subject.
 - [[ERA5 cloud does not predict Sentinel-2 AOI usability]] — measured negative result: no weather-based scene pre-screen is safe
 - [[Agreement metrics for binary flood maps]] — what precision, recall, F1, IoU, MCC say, when each misleads, coverage first
 - [[UNOSAT FL20251128LKA flood reference]] — the validation reference: Sentinel-2, cumulative, no analysed extent
+- [[Copernicus EMS EMSR851 flood reference]] — the main experiment's reference (AOI02, Kelani) and Gampola's: one post-event image each, flood trace counts, domain stops at the analysed area
 - [[Validation against the UNOSAT reference]] — the Kelani validation: design, decisions, results so far
 - [[Labelled-sample validation - walkthrough]] — every step of the stratified labelled sample: strata, labels, Stehman estimators, final metrics
 - [[Flood map validation - sources]] — full references for the validation notes

@@ -50,7 +50,7 @@ Before reading a mismatch as evidence against TOPSIS, check in this order:
 2. **Shared blind spots** -- does the reference's sensor favour one of them?
 3. **Timing** -- did each product's passes fall when the flood was there?
 4. **The criterion behind the TOPSIS gap** -- does the metric even measure what
-   separated the two in TOPSIS (for example, archive depth or access maturity)?
+   separated the two in TOPSIS (for example, archive length or access maturity)?
 
 Only a mismatch that survives all four says something about the ranking.
 

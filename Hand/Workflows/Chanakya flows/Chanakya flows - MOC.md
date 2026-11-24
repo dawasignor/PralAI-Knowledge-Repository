@@ -34,13 +34,13 @@ Inputs are cited by number from [[Chanakya input sources]].
 ### Water
 
 - [[Critical infrastructure and waterlogging]] -- Waterlogged areas against the infrastructure that has to keep working through them - ambulance routes, emergency contact and the facilities people are sent to
-- [[Sewage and infection risk]] -- Wastewater hazard sources released or backed up by flooding, who is exposed to them, and the infection risk that follows when sanitation fails
+- [[Human health risk]] -- Flood-related human health risks - wastewater and drinking-water pathways, contact, vector-borne and respiratory disease, who is exposed and vulnerable, and the conditions under which the literature finds each risk (formerly Sewage and infection risk)
 - [[Drinking water scarcity]] -- Loss of safe drinking water after a flood - what supply is compromised, for how long, and the plan that restores it
 
 ### Food
 
 - [[Primary cooking fuel disruption]] -- Whether households can still cook - electric, cylinder LPG or piped gas - and what each failure mode means for food security in the days after a flood
-- [[Food aid and relief estimation]] -- How much immediate food relief the affected population needs, for how long, and where it has to physically reach
+- [[Essential services]] -- Essential services after a flood - hospital accessibility, food aid and drinking-water aid - lost through inundation and through access, and who loses them (formerly Essential services)
 
 ### Energy
 
@@ -57,9 +57,9 @@ Inputs are cited by number from [[Chanakya input sources]].
 
 Status runs `stub -> draft -> verified`.
 
-- **draft** -- [[Sewage and infection risk]]. The analysis is written and
+- **draft** -- [[Human health risk]]. The analysis is written and
   sourced; the procedure is authoritative in the repo at
-  `agents/citadel/workflows/sewage_infection_risk.md`.
+  `agents/citadel/workflows/human_health_risk.md`.
 - **stub** -- everything else. Node fields, inputs and the retrieval line are
   written; the task description and the expected output are not.
 

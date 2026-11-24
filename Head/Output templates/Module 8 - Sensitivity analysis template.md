@@ -38,6 +38,8 @@ with its source.
 | `data_acquired` | when each payload the module shows was acquired, in the event's zone (user decision 2026-10-26) |
 | `how_sure` | the four-level uncertainty from those payloads' own blocks (D-34), then any caveats a block added |
 
+> Since 2026-11-22 the sweep starts from the weights and scores Module 7 ranked with -- the event-first weights and any the user changed -- and each threshold gives the weight to state.
+
 ## Template
 
 ```markdown

@@ -172,8 +172,9 @@ So, wherever you emit both:
    `observation_basis.observed_area_km2` -- and use those exact figures. The
    box area is reported beside them and divided by nothing.
 3. **A proxy cutting across the supplied class bins is a sum, and you must show
-   it.** `ndvi < 0.3` is not a bin: it is `water_or_wet` plus `bare_or_built`
-   plus part of `sparse_vegetation`. Name the bins you summed in the proxy's
+   it.** `ndvi < 0.3` is not a bin: it is `non_vegetation` plus part of
+   `low_greenness` (older results: `water_or_wet` plus `bare_or_built` plus part
+   of `sparse_vegetation`). Name the bins you summed in the proxy's
    `rule`, and say so when a bin had to be split by interpolation.
 4. **Check every pair before emitting.** Recompute `fraction x denominator`; if
    it disagrees with your stated area by more than 1%, correct the pair rather
